@@ -18,63 +18,99 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+
+
 public class MainActivity extends Activity {
     public static final String URL_STRING_REQ = "http://www.flightstats.com/go/weblet?guid=34b64945a69b9cac:a51bccf:12d54dfa33f:-5bfe&weblet=status&action=AirportFlightStatus&airportCode=RGN";
-    private String TAG = MainActivity.class.getSimpleName();
+//   / private String TAG = MainActivity.class.getSimpleName();
+
     private String tag_string_req = "string_req";
     TextView t;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        t=(TextView)findViewById(R.id.hello);
-        makeStringReq();
-    }
+        t = (TextView) findViewById(R.id.hello);
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+            makeStringReq(URL_STRING_REQ);
+        }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+
+        @Override
+        public boolean onCreateOptionsMenu (Menu menu){
+            // Inflate the menu; this adds items to the action bar if it is present.
+            getMenuInflater().inflate(R.menu.main, menu);
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
-    }
+        @Override
+        public boolean onOptionsItemSelected (MenuItem item){
+            // Handle action bar item clicks here. The action bar will
+            // automatically handle clicks on the Home/Up button, so long
+            // as you specify a parent activity in AndroidManifest.xml.
+            int id = item.getItemId();
 
-    /**
-     * Making json object request
-     * */
-    private void makeStringReq() {
+            //noinspection SimplifiableIfStatement
+            if (id == R.id.action_settings) {
+                return true;
+            }
+
+            return super.onOptionsItemSelected(item);
+        }
+
+        /**
+         * Making json object request
+         * */
+
+
+    private void makeStringReq(String url) {
         //showProgressDialog();
-        RequestQueue queue = Volley.newRequestQueue(this);
+
+        RequestQueue queue = Volley.newRequestQueue(getApplication());
         StringRequest strReq = new StringRequest(Request.Method.GET,
-                URL_STRING_REQ, new Response.Listener<String>() {
+                url, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.d(TAG, response.toString());
-                t.setText(response.toString());
+
+                //Log.d(TAG, response.toString());
+                try {
+
+                    String result;
+                    result = response.substring(6537).toString();
+                    result = response.replace("\t", "").replace("\n", "").replace("\r", "").toString();
+
+                    //Using Jsoup to convert html to objects
+                    Document doc;
+                    doc=Jsoup.parse(response.toString());
+                    t.setText(doc.body().select(".tableListingTable>tbody").toString());
 
 
+
+
+
+
+
+                } catch (Exception e) {
+                    Log.e("Xml ParseError", e.getMessage());
+                }
             }
         }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                VolleyLog.d("Error", "Error: " + error.getMessage());
 
             }
         });
