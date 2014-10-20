@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/debug/classes-50badf9e506275c68b13c0cb34cb8ffa1f00910e.jar"
+        jar="/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/exploded-aar/com.mcxiaoke.volley/library-aar/1.0.0/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="e40b9a81989bd4a846018551c280f8c4d837bf2e"/>
+
+</pre-dex-items>
