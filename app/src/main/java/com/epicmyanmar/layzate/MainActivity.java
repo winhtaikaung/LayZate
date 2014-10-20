@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.epicmyanmar.layzate.AppController;
@@ -24,13 +25,16 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.w3c.dom.NodeList;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 
 
 public class MainActivity extends Activity {
-    public static final String URL_STRING_REQ = "http://www.flightstats.com/go/weblet?guid=34b64945a69b9cac:a51bccf:12d54dfa33f:-5bfe&weblet=status&action=AirportFlightStatus&airportCode=KYP";
+    public static final String URL_STRING_REQ = "http://www.flightstats.com/go/weblet?guid=34b64945a69b9cac:a51bccf:12d54dfa33f:-5bfe&weblet=status&action=AirportFlightStatus&airportCode=RGN";
 //   / private String TAG = MainActivity.class.getSimpleName();
 
     private String tag_string_req = "string_req";
@@ -44,7 +48,8 @@ public class MainActivity extends Activity {
 
 
 
-            makeStringReq(URL_STRING_REQ);
+            //makeStringReq(URL_STRING_REQ);
+            postStringReq(URL_STRING_REQ);
         }
 
 
@@ -122,6 +127,73 @@ public class MainActivity extends Activity {
 
             }
         });
+
+        // Adding request to request queue
+        queue.add(strReq);
+
+    }
+
+    private void postStringReq(String url) {
+        //showProgressDialog();
+
+        RequestQueue queue = Volley.newRequestQueue(getApplication());
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+
+                //Log.d(TAG, response.toString());
+                try {
+
+                    //Using Jsoup to convert html to objects
+                    Document doc;
+                    doc=Jsoup.parse(response.toString());
+
+                    Elements flightList;
+                    flightList=doc.body().select(".tableListingTable>tbody").select("tr");
+                    if(flightList.size()>1) {
+
+                        for(int i=1;i<flightList.size();i++)
+                        {
+                            Element flight= flightList.get(i).select("td").get(0);
+                            Element carrier= flightList.get(i).select("td").get(1);
+                            Element Destination= flightList.get(i).select("td").get(2);
+                            Element DepartureTime= flightList.get(i).select("td").get(3);
+                            Element Status= flightList.get(i).select("td").get(4);
+                            t.setText(flight.text() + carrier.text()+Destination.text()+DepartureTime.text()+Status.text()+"\n");
+                        }
+
+                    }
+                    else{
+                        t.setText("No Flight At All");
+                    }
+                } catch (Exception e) {
+                    Log.e("Xml ParseError", e.getMessage());
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Error", "Error: " + error.getMessage());
+
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("language","English");
+                params.put("startAction","AirportFlightStatus");
+                params.put("airportQueryTimePeriod", "4");
+                params.put("imageColor","orange");
+                params.put("airportQueryType","0");
+
+                return params;
+            }
+
+
+        };
 
         // Adding request to request queue
         queue.add(strReq);
