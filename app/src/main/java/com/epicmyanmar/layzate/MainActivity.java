@@ -21,6 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -29,7 +30,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 
 public class MainActivity extends Activity {
-    public static final String URL_STRING_REQ = "http://www.flightstats.com/go/weblet?guid=34b64945a69b9cac:a51bccf:12d54dfa33f:-5bfe&weblet=status&action=AirportFlightStatus&airportCode=RGN";
+    public static final String URL_STRING_REQ = "http://www.flightstats.com/go/weblet?guid=34b64945a69b9cac:a51bccf:12d54dfa33f:-5bfe&weblet=status&action=AirportFlightStatus&airportCode=KYP";
 //   / private String TAG = MainActivity.class.getSimpleName();
 
     private String tag_string_req = "string_req";
@@ -87,24 +88,31 @@ public class MainActivity extends Activity {
                 //Log.d(TAG, response.toString());
                 try {
 
-                    String result;
-                    result = response.substring(6537).toString();
-                    result = response.replace("\t", "").replace("\n", "").replace("\r", "").toString();
-
                     //Using Jsoup to convert html to objects
                     Document doc;
                     doc=Jsoup.parse(response.toString());
-                    t.setText(doc.body().select(".tableListingTable>tbody").toString());
 
+                    Elements flightList;
+                    flightList=doc.body().select(".tableListingTable>tbody").select("tr");
+                        if(flightList.size()>1) {
 
+                            for(int i=1;i<flightList.size();i++)
+                            {
+                                Element flight= flightList.get(i).select("td").get(0);
+                                Element carrier= flightList.get(i).select("td").get(1);
+                                Element Destination= flightList.get(i).select("td").get(2);
+                                Element DepartureTime= flightList.get(i).select("td").get(3);
+                                Element Status= flightList.get(i).select("td").get(4);
+                                t.setText(flight.text() + carrier.text()+Destination.text()+DepartureTime.text()+Status.text()+"\n");
+                            }
 
-
-
-
-
-                } catch (Exception e) {
-                    Log.e("Xml ParseError", e.getMessage());
-                }
+                        }
+                        else{
+                            t.setText("No Flight At All");
+                        }
+                    } catch (Exception e) {
+                        Log.e("Xml ParseError", e.getMessage());
+                    }
             }
         }, new Response.ErrorListener() {
 
