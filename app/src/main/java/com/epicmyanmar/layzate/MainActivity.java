@@ -1,6 +1,7 @@
 package com.epicmyanmar.layzate;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.epicmyanmar.layzate.AppController;
+
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -25,12 +26,16 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.w3c.dom.NodeList;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import entity.Flight;
+import model.Dal;
 
 
 public class MainActivity extends Activity {
@@ -39,7 +44,7 @@ public class MainActivity extends Activity {
 
     private String tag_string_req = "string_req";
     TextView t;
-
+    Dal dal=new Dal();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +53,8 @@ public class MainActivity extends Activity {
 
 
 
-            //makeStringReq(URL_STRING_REQ);
-            postStringReq(URL_STRING_REQ);
+          // makeStringReq(URL_STRING_REQ);
+           postStringReq(URL_STRING_REQ);
         }
 
 
@@ -79,45 +84,22 @@ public class MainActivity extends Activity {
          * Making json object request
          * */
 
-
+    /**
+    *
+    * This Method Make Get Request with Volley & Manipulate Response with Jsoup
+    * */
     private void makeStringReq(String url) {
         //showProgressDialog();
 
         RequestQueue queue = Volley.newRequestQueue(getApplication());
         StringRequest strReq = new StringRequest(Request.Method.GET,
                 url, new Response.Listener<String>() {
+            List<Flight> flist=new ArrayList<Flight>();
 
             @Override
             public void onResponse(String response) {
 
-                //Log.d(TAG, response.toString());
-                try {
-
-                    //Using Jsoup to convert html to objects
-                    Document doc;
-                    doc=Jsoup.parse(response.toString());
-
-                    Elements flightList;
-                    flightList=doc.body().select(".tableListingTable>tbody").select("tr");
-                        if(flightList.size()>1) {
-
-                            for(int i=1;i<flightList.size();i++)
-                            {
-                                Element flight= flightList.get(i).select("td").get(0);
-                                Element carrier= flightList.get(i).select("td").get(1);
-                                Element Destination= flightList.get(i).select("td").get(2);
-                                Element DepartureTime= flightList.get(i).select("td").get(3);
-                                Element Status= flightList.get(i).select("td").get(4);
-                                t.setText(flight.text() + carrier.text()+Destination.text()+DepartureTime.text()+Status.text()+"\n");
-                            }
-
-                        }
-                        else{
-                            t.setText("No Flight At All");
-                        }
-                    } catch (Exception e) {
-                        Log.e("Xml ParseError", e.getMessage());
-                    }
+                 dal.getflightList(response);
             }
         }, new Response.ErrorListener() {
 
@@ -133,6 +115,10 @@ public class MainActivity extends Activity {
 
     }
 
+    /**
+     *
+     * This Method Make Post Request with some URL parameter with volley & Manipulate Response with Jsoup
+     * */
     private void postStringReq(String url) {
         //showProgressDialog();
 
@@ -142,35 +128,10 @@ public class MainActivity extends Activity {
 
             @Override
             public void onResponse(String response) {
-
-                //Log.d(TAG, response.toString());
-                try {
-
-                    //Using Jsoup to convert html to objects
-                    Document doc;
-                    doc=Jsoup.parse(response.toString());
-
-                    Elements flightList;
-                    flightList=doc.body().select(".tableListingTable>tbody").select("tr");
-                    if(flightList.size()>1) {
-
-                        for(int i=1;i<flightList.size();i++)
-                        {
-                            Element flight= flightList.get(i).select("td").get(0);
-                            Element carrier= flightList.get(i).select("td").get(1);
-                            Element Destination= flightList.get(i).select("td").get(2);
-                            Element DepartureTime= flightList.get(i).select("td").get(3);
-                            Element Status= flightList.get(i).select("td").get(4);
-                            t.setText(flight.text() + carrier.text()+Destination.text()+DepartureTime.text()+Status.text()+"\n");
-                        }
-
-                    }
-                    else{
-                        t.setText("No Flight At All");
-                    }
-                } catch (Exception e) {
-                    Log.e("Xml ParseError", e.getMessage());
+                for (Flight flight : dal.getflightList(response)) {
+                    t.setText(flight.getFlightname());
                 }
+                ;
             }
         }, new Response.ErrorListener() {
 
@@ -185,7 +146,7 @@ public class MainActivity extends Activity {
                 Map<String,String> params = new HashMap<String, String>();
                 params.put("language","English");
                 params.put("startAction","AirportFlightStatus");
-                params.put("airportQueryTimePeriod", "4");
+                params.put("airportQueryTimePeriod", "5");
                 params.put("imageColor","orange");
                 params.put("airportQueryType","0");
 
@@ -199,4 +160,6 @@ public class MainActivity extends Activity {
         queue.add(strReq);
 
     }
+
+
 }
