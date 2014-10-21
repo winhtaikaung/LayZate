@@ -43,19 +43,20 @@ public class MainActivity extends Activity {
 //   / private String TAG = MainActivity.class.getSimpleName();
 
     private String tag_string_req = "string_req";
-    TextView t;
-    Dal dal=new Dal();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        t = (TextView) findViewById(R.id.hello);
 
 
+        if(savedInstanceState==null){
+          getFragmentManager().beginTransaction().add(R.id.container,new FlightListFragment()).commit();
+        }
 
           // makeStringReq(URL_STRING_REQ);
-           postStringReq(URL_STRING_REQ);
-        }
+          // postStringReq(URL_STRING_REQ);
+    }
 
 
         @Override
@@ -99,7 +100,7 @@ public class MainActivity extends Activity {
             @Override
             public void onResponse(String response) {
 
-                 dal.getflightList(response);
+
             }
         }, new Response.ErrorListener() {
 
@@ -126,12 +127,13 @@ public class MainActivity extends Activity {
         StringRequest strReq = new StringRequest(Request.Method.POST,
                 url, new Response.Listener<String>() {
 
+            //call back function from Google volley
             @Override
             public void onResponse(String response) {
-                for (Flight flight : dal.getflightList(response)) {
-                    t.setText(flight.getFlightname());
-                }
-                ;
+                       //getting data from flightlist
+
+
+
             }
         }, new Response.ErrorListener() {
 

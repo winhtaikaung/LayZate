@@ -8,7 +8,9 @@
     <eat-comment/>
     <string name="action_settings">Settings</string>
     <string name="app_name">LayZate</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_flight_list">Flight List</string>
     <!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
