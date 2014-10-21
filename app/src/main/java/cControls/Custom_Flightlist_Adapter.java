@@ -37,13 +37,21 @@ public class Custom_Flightlist_Adapter extends ArrayAdapter {
 
     Context context;
     List<Flight> mFlights;
-
+    /**
+     * Public Constructor for ArrayAdapter
+     * */
     public Custom_Flightlist_Adapter(Context _context, List<Flight> Flightlist) {
         super(_context, R.layout.flight_item, Flightlist);
         this.context=_context;
         this.mFlights=Flightlist;
     }
-
+    /**
+     * Overriden Method for Overiding the View Inflation
+     * @param position Position Indexer for ArrayAdapter
+     * @param view View to be inflated
+     * @param parent ViewGroup to make parent
+     * @return view Return View
+     * */
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         final ViewHolder holder;
@@ -66,6 +74,12 @@ public class Custom_Flightlist_Adapter extends ArrayAdapter {
         return view;
     }
 
+    /**
+     *
+     * making TextViews to be reusable ViewHolder
+     * All View Elements for List Adapter will be declared here
+     *
+     */
     static class ViewHolder{
       @InjectView(R.id.txtflightname)  TextView flightname;
       @InjectView(R.id.txt_arrival_departure)  TextView arriv_depart_time;
