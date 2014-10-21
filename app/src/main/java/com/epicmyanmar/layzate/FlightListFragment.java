@@ -2,7 +2,10 @@ package com.epicmyanmar.layzate;
 
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.os.Handler;
@@ -38,29 +41,28 @@ public class FlightListFragment extends Fragment {
     private Custom_Flightlist_Adapter custom_flightlist_adapter;
     List<Flight> mFlightListItem=new ArrayList<Flight>();
     ListView listView;
-
+    private ProgressDialog pDialog;
 
 
 
         @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-      //  makeStringReq();
 
-//        Flight f1=new Flight();
-//       f1.setFlightname("ASDF");
-//        f1.setCarrier("asdf");
-//       f1.setStatus("asdfasdf");
-//        f1.setArrival_departure_time("13:14 PM");
-//        f1.setOrigin_destination("America");
-//        mFlightListItem.add(f1);
-
-
+            setHasOptionsMenu(true);
+        getActivity().getActionBar().setTitle("Detail");
 
         View view=inflater.inflate(R.layout.fragment_flight_list,container,false);
         listView=(ListView) view.findViewById(R.id.listview_flight);
 
+            pDialog = new ProgressDialog(getActivity());
+            // Showing progress dialog before making http request
+            pDialog.setMessage("Loading...");
+            pDialog.show();
 
+            // changing action bar color
+            getActivity().getActionBar().setBackgroundDrawable(
+                    new ColorDrawable(Color.parseColor("#1b1b1b")));
             /*
             * Volley Http Request with list Adapter Binding
             * */
@@ -71,7 +73,7 @@ public class FlightListFragment extends Fragment {
 
                 @Override
                 public void onResponse(String response) {
-
+                    hidePDialog();
                     Dal dal=new Dal();
                     mFlightListItem=dal.getflightList(response);
                     custom_flightlist_adapter=new Custom_Flightlist_Adapter(getActivity(),mFlightListItem);
@@ -90,7 +92,9 @@ public class FlightListFragment extends Fragment {
 
             // Adding request to request queue
             queue.add(strReq);
-
+            /*
+            * add click listener on each items
+            * */
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -105,6 +109,12 @@ public class FlightListFragment extends Fragment {
 
     }
 
+    private void hidePDialog() {
+        if (pDialog != null) {
+            pDialog.dismiss();
+            pDialog = null;
+        }
+    }
 
 
     private void makeStringReq() {
