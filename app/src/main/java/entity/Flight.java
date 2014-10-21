@@ -21,8 +21,8 @@ package entity;
 public class Flight {
     private String flightname;
     private String carrier;
-    private String destination;
-    private String departure;
+    private String origin_destination;
+    private String arrival_departure_time;
     private String status;
 
     public String getFlightname() {
@@ -41,21 +41,9 @@ public class Flight {
         this.carrier = carrier;
     }
 
-    public String getDestination() {
-        return destination;
-    }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
 
-    public String getDeparture() {
-        return departure;
-    }
 
-    public void setDeparture(String departure) {
-        this.departure = departure;
-    }
 
     public String getStatus() {
         return status;
@@ -63,5 +51,21 @@ public class Flight {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getArrival_departure_time() {
+        return arrival_departure_time;
+    }
+
+    public void setArrival_departure_time(String arrival_departure_time) {
+        this.arrival_departure_time = arrival_departure_time;
+    }
+
+    public String getOrigin_destination() {
+        return origin_destination;
+    }
+
+    public void setOrigin_destination(String origin_destination) {
+        this.origin_destination = origin_destination;
     }
 }

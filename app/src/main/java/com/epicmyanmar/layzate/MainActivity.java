@@ -39,7 +39,7 @@ import model.Dal;
 
 
 public class MainActivity extends Activity {
-    public static final String URL_STRING_REQ = "http://www.flightstats.com/go/weblet?guid=34b64945a69b9cac:a51bccf:12d54dfa33f:-5bfe&weblet=status&action=AirportFlightStatus&airportCode=RGN";
+    private static final String URL_STRING_REQ = "http://www.flightstats.com/go/weblet?guid=34b64945a69b9cac:a51bccf:12d54dfa33f:-5bfe&weblet=status&action=AirportFlightStatus&airportCode=RGN";
 //   / private String TAG = MainActivity.class.getSimpleName();
 
     private String tag_string_req = "string_req";

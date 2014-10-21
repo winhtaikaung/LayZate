@@ -16,12 +16,18 @@ package cControls;
  */
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.epicmyanmar.layzate.R;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import entity.Flight;
 
 /**
@@ -34,6 +40,38 @@ public class Custom_Flightlist_Adapter extends ArrayAdapter {
 
     public Custom_Flightlist_Adapter(Context _context, List<Flight> Flightlist) {
         super(_context, R.layout.flight_item, Flightlist);
+        this.context=_context;
         this.mFlights=Flightlist;
+    }
+
+    @Override
+    public View getView(int position, View view, ViewGroup parent) {
+        final ViewHolder holder;
+        if(view!=null){
+            holder=(ViewHolder) view.getTag();
+        }else{
+            LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view=inflater.inflate(R.layout.flight_item,null);
+
+            holder = new ViewHolder(view);
+
+            view.setTag(holder);
+
+        }
+
+        holder.flightname.setText(mFlights.get(position).getFlightname());
+        holder.arriv_depart_time.setText(mFlights.get(position).getArrival_departure_time());
+        holder.origin_destination.setText(mFlights.get(position).getOrigin_destination());
+
+        return view;
+    }
+
+    static class ViewHolder{
+      @InjectView(R.id.txtflightname)  TextView flightname;
+      @InjectView(R.id.txt_arrival_departure)  TextView arriv_depart_time;
+      @InjectView(R.id.txt_origin_destination)  TextView origin_destination;
+        public ViewHolder(View view) {
+            ButterKnife.inject(this, view);
+        }
     }
 }
