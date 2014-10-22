@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
 //   / private String TAG = MainActivity.class.getSimpleName();
 
     private String tag_string_req = "string_req";
-
+    FlightListFragment flightListFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +51,13 @@ public class MainActivity extends Activity {
 
 
         if(savedInstanceState==null){
-          getFragmentManager().beginTransaction().add(R.id.container,new FlightListFragment()).commit();
+            //passing values to bundle
+            Bundle bundle=new Bundle();
+            bundle.putString("parms","WHA WHA");
+            flightListFragment=new FlightListFragment();
+            flightListFragment.setArguments(bundle);
+
+          getFragmentManager().beginTransaction().add(R.id.container,flightListFragment).commit();
         }
 
           // makeStringReq(URL_STRING_REQ);

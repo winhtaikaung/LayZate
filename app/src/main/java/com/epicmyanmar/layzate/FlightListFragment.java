@@ -48,9 +48,11 @@ public class FlightListFragment extends Fragment {
         @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
+            Bundle bundle = this.getArguments();
             setHasOptionsMenu(true);
-        getActivity().getActionBar().setTitle("Detail");
+        getActivity().getActionBar().setTitle("Current Departure");
+
+            Toast.makeText(getActivity(),bundle.getString("parms").toString(),Toast.LENGTH_SHORT).show();
 
         View view=inflater.inflate(R.layout.fragment_flight_list,container,false);
         listView=(ListView) view.findViewById(R.id.listview_flight);
@@ -106,6 +108,11 @@ public class FlightListFragment extends Fragment {
 
         return view;
 
+
+    }
+
+
+    private void showdetailDialog(){
 
     }
 

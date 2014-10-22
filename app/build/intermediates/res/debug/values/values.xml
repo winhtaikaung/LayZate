@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string-array name="query_time_period">
+        <item>12:00 AM - 3:00 AM</item>
+        <item>3:00 AM - 6:00 AM</item>
+        <item>6:00 AM - 9:00 AM</item>
+        <item>9:00 AM - 12:00 PM</item>
+        <item>12:00 PM - 3:00 PM</item>
+        <item>3:00 PM - 6:00 PM</item>
+        <item>6:00 PM - 9:00 PM</item>
+        <item>9:00 PM - 12:00 AM</item>
+    </string-array>
     <!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
@@ -11,6 +23,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_flight_list">Flight List</string>
+    <string name="title_activity_flight_status_change">Flight_status_change</string>
     <!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
