@@ -76,12 +76,17 @@ public class TimePeriod_spinner_adapter extends ArrayAdapter<TimePeriod> {
             holder=new ViewHolder(convertView);
             convertView.setTag(holder);
         }
+        /*
+        * Getting Position of Array and get object inside array
+        * */
         TimePeriod t=mtimelist.get(position);
         holder.txt_time_period.setText(t.getPeriod());
 
         return convertView;
     }
-
+    /*
+    * View Holder to save the memory
+    * */
     static class ViewHolder{
         @InjectView(R.id.txt_time_period)  TextView txt_time_period;
 

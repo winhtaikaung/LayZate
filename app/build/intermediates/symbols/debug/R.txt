@@ -1,4 +1,5 @@
-int array query_time_period 0x7f040000
+int array airport_names 0x7f040000
+int array query_time_period 0x7f040001
 int dimen activity_horizontal_margin 0x7f050000
 int dimen activity_vertical_margin 0x7f050001
 int drawable ic_launcher 0x7f020000
@@ -11,7 +12,6 @@ int id radioButton2 0x7f090012
 int id rdoGroupStatus 0x7f090010
 int id textView 0x7f090002
 int id textView10 0x7f09000b
-int id textView11 0x7f090001
 int id textView2 0x7f090004
 int id textView3 0x7f090006
 int id textView4 0x7f090008
@@ -22,6 +22,7 @@ int id textView8 0x7f090007
 int id textView9 0x7f090009
 int id txt_arrival_departure 0x7f09000e
 int id txt_origin_destination 0x7f09000d
+int id txt_status 0x7f090001
 int id txt_time_period 0x7f090014
 int id txtflightname 0x7f09000c
 int layout activity_main 0x7f030000

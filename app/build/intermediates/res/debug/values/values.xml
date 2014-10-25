@@ -2,7 +2,19 @@
 <resources>
     <!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string-array name="airport_names">
+        <item>Please Select Airport</item>
+        <item>12:00 AM - 3:00 AM</item>
+        <item>3:00 AM - 6:00 AM</item>
+        <item>6:00 AM - 9:00 AM</item>
+        <item>9:00 AM - 12:00 PM</item>
+        <item>12:00 PM - 3:00 PM</item>
+        <item>3:00 PM - 6:00 PM</item>
+        <item>6:00 PM - 9:00 PM</item>
+        <item>9:00 PM - 12:00 AM</item>
+    </string-array>
     <string-array name="query_time_period">
+        <item>Please Select Time Period</item>
         <item>12:00 AM - 3:00 AM</item>
         <item>3:00 AM - 6:00 AM</item>
         <item>6:00 AM - 9:00 AM</item>

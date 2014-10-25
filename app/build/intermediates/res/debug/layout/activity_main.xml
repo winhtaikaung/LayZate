@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="No Internet Connection"
-        android:id="@+id/textView11"
+        android:id="@+id/txt_status"
         android:layout_gravity="center" />
 </FrameLayout>
 <!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/layout/activity_main.xml -->

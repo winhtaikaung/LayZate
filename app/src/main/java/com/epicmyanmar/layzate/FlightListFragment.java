@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -28,6 +29,7 @@ import com.android.volley.toolbox.Volley;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.InjectView;
 import cControls.Custom_Flightlist_Adapter;
 import entity.Flight;
 import model.Dal;
@@ -48,13 +50,14 @@ public class FlightListFragment extends Fragment {
         @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-            Bundle bundle = this.getArguments();
+         //   Bundle bundle = this.getArguments();
             setHasOptionsMenu(true);
-        getActivity().getActionBar().setTitle("Current Departure");
+       // getActivity().getActionBar().setTitle("Current Departure");
 
-            Toast.makeText(getActivity(),bundle.getString("parms").toString(),Toast.LENGTH_SHORT).show();
+           // Toast.makeText(getActivity(),bundle.getString("parms").toString(),Toast.LENGTH_SHORT).show();
 
         View view=inflater.inflate(R.layout.fragment_flight_list,container,false);
+
         listView=(ListView) view.findViewById(R.id.listview_flight);
 
             pDialog = new ProgressDialog(getActivity());
@@ -77,10 +80,20 @@ public class FlightListFragment extends Fragment {
                 public void onResponse(String response) {
                     hidePDialog();
                     Dal dal=new Dal();
+
                     mFlightListItem=dal.getflightList(response);
-                    custom_flightlist_adapter=new Custom_Flightlist_Adapter(getActivity(),mFlightListItem);
-                    listView.setAdapter(custom_flightlist_adapter);
-                    custom_flightlist_adapter.notifyDataSetChanged();
+                    if(mFlightListItem.size()==0) {
+
+                        custom_flightlist_adapter = new Custom_Flightlist_Adapter(getActivity(), mFlightListItem);
+                        listView.setAdapter(custom_flightlist_adapter);
+                        custom_flightlist_adapter.notifyDataSetChanged();
+                        MainActivity.txt_status.setText("No Flight Information \n \nPlease Try again Later");
+                    }else{
+                        custom_flightlist_adapter = new Custom_Flightlist_Adapter(getActivity(), mFlightListItem);
+                        listView.setAdapter(custom_flightlist_adapter);
+                        custom_flightlist_adapter.notifyDataSetChanged();
+                    }
+
 
                 }
             }, new Response.ErrorListener() {

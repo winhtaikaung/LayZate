@@ -9,7 +9,8 @@ package com.epicmyanmar.layzate;
 
 public final class R {
     public static final class array {
-        public static final int query_time_period=0x7f040000;
+        public static final int airport_names=0x7f040000;
+        public static final int query_time_period=0x7f040001;
     }
     public static final class attr {
     }
@@ -30,7 +31,6 @@ public final class R {
         public static final int rdoGroupStatus=0x7f090010;
         public static final int textView=0x7f090002;
         public static final int textView10=0x7f09000b;
-        public static final int textView11=0x7f090001;
         public static final int textView2=0x7f090004;
         public static final int textView3=0x7f090006;
         public static final int textView4=0x7f090008;
@@ -41,6 +41,7 @@ public final class R {
         public static final int textView9=0x7f090009;
         public static final int txt_arrival_departure=0x7f09000e;
         public static final int txt_origin_destination=0x7f09000d;
+        public static final int txt_status=0x7f090001;
         public static final int txt_time_period=0x7f090014;
         public static final int txtflightname=0x7f09000c;
     }

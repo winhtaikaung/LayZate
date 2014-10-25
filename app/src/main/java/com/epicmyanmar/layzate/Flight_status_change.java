@@ -31,20 +31,16 @@ public class Flight_status_change extends Activity {
         ButterKnife.inject(this);
         ArrayList<TimePeriod> mlist=new ArrayList<TimePeriod>();
 
-        TimePeriod t1=new TimePeriod();
-        t1.setPeriod("1");
-        t1.setValue(0);
+        String[] myArray = getResources().getStringArray(R.array.query_time_period);
 
 
-        TimePeriod t2=new TimePeriod();
-        t2.setPeriod("2");
-        t2.setValue(1);
-        TimePeriod t3=new TimePeriod();
-        t3.setPeriod("3");
-        t3.setValue(2);
-        mlist.add(t1);
-        mlist.add(t2);
-        mlist.add(t3);
+        for(int i=0;i<myArray.length;i++){
+            TimePeriod tItem=new TimePeriod();
+            tItem.setPeriod(myArray[i].toString());
+            tItem.setValue(i);
+            mlist.add(tItem);
+        }
+
 
 
 

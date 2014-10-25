@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ff22b4ff">
 
     <TextView
         android:id="@+id/txt_time_period"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
-
+        android:gravity="center"
         android:layout_gravity="center_horizontal" />
 </LinearLayout><!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/layout/time_period_spinner_row.xml -->

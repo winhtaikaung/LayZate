@@ -34,6 +34,8 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import entity.Flight;
 import model.Dal;
 
@@ -44,11 +46,15 @@ public class MainActivity extends Activity {
 
     private String tag_string_req = "string_req";
     FlightListFragment flightListFragment;
+    /*
+    * txt_status will be notifier of all status of app  like no connection,no flight status etc
+    * */
+    public static   TextView txt_status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+       txt_status=(TextView) findViewById(R.id.txt_status);
 
         if(savedInstanceState==null){
             //passing values to bundle
