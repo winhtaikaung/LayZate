@@ -22,38 +22,71 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import com.epicmyanmar.layzate.R;
 
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import entity.TimePeriod;
 
 /**
  * Created by jr on 10/25/14.
  */
-public class TimePeriod_spinner_adapter extends ArrayAdapter<String> {
+public class TimePeriod_spinner_adapter extends ArrayAdapter<TimePeriod> {
 
-    private Activity activity;
-    private ArrayList data;
+    private Context context;
+    private ArrayList<TimePeriod> mtimelist ;
 
-    TimePeriod tempValues=null;
-    LayoutInflater inflater;
 
-    public TimePeriod_spinner_adapter(Activity _activity,int textViewResourceId,ArrayList objects){
-        super(_activity,textViewResourceId,objects);
-        activity=_activity;
-        data=objects;
 
-        inflater=(LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public TimePeriod_spinner_adapter(Context _context,int textViewResourceId,ArrayList<TimePeriod> _mtimelist){
+        super(_context,textViewResourceId, _mtimelist);
+
+        this.context=_context;
+        this.mtimelist=_mtimelist;
 
     }
-
+    /*
+    * Overide and load th customView in spinner
+    * */
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        return super.getDropDownView(position, convertView, parent);
+        return getCustomView(position, convertView, parent);
     }
-
+     /*
+    * Overide and load th customView in spinner
+    * */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return super.getView(position, convertView, parent);
+        return getCustomView(position, convertView, parent);
+    }
+
+    public View getCustomView(int position, View convertView, ViewGroup parent) {
+        final ViewHolder holder;
+        if(convertView!=null){
+            holder=(ViewHolder) convertView.getTag();
+        }
+        else{
+            LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+            convertView =inflater.inflate(R.layout.time_period_spinner_row,null);
+            holder=new ViewHolder(convertView);
+            convertView.setTag(holder);
+        }
+        TimePeriod t=mtimelist.get(position);
+        holder.txt_time_period.setText(t.getPeriod());
+
+        return convertView;
+    }
+
+    static class ViewHolder{
+        @InjectView(R.id.txt_time_period)  TextView txt_time_period;
+
+        public ViewHolder(View view) {
+            ButterKnife.inject(this, view);
+        }
     }
 }

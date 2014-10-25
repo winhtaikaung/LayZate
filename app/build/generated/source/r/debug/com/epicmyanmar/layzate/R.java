@@ -21,7 +21,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090014;
+        public static final int action_settings=0x7f090015;
         public static final int container=0x7f090000;
         public static final int listview_flight=0x7f090013;
         public static final int query_time_spin=0x7f09000f;
@@ -41,6 +41,7 @@ public final class R {
         public static final int textView9=0x7f090009;
         public static final int txt_arrival_departure=0x7f09000e;
         public static final int txt_origin_destination=0x7f09000d;
+        public static final int txt_time_period=0x7f090014;
         public static final int txtflightname=0x7f09000c;
     }
     public static final class layout {
@@ -49,6 +50,7 @@ public final class R {
         public static final int flight_item=0x7f030002;
         public static final int flight_status_change=0x7f030003;
         public static final int fragment_flight_list=0x7f030004;
+        public static final int time_period_spinner_row=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f080000;

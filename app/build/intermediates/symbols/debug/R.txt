@@ -2,7 +2,7 @@ int array query_time_period 0x7f040000
 int dimen activity_horizontal_margin 0x7f050000
 int dimen activity_vertical_margin 0x7f050001
 int drawable ic_launcher 0x7f020000
-int id action_settings 0x7f090014
+int id action_settings 0x7f090015
 int id container 0x7f090000
 int id listview_flight 0x7f090013
 int id query_time_spin 0x7f09000f
@@ -22,12 +22,14 @@ int id textView8 0x7f090007
 int id textView9 0x7f090009
 int id txt_arrival_departure 0x7f09000e
 int id txt_origin_destination 0x7f09000d
+int id txt_time_period 0x7f090014
 int id txtflightname 0x7f09000c
 int layout activity_main 0x7f030000
 int layout flight_detail_dialog 0x7f030001
 int layout flight_item 0x7f030002
 int layout flight_status_change 0x7f030003
 int layout fragment_flight_list 0x7f030004
+int layout time_period_spinner_row 0x7f030005
 int menu main 0x7f080000
 int menu menu_flight_list 0x7f080001
 int menu menu_flight_status_change 0x7f080002
