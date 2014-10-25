@@ -20,6 +20,7 @@ public class Flight_status_change extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getActionBar().setTitle("Change Your Flight List");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flight_status_change);
         ButterKnife.inject(this);
