@@ -31,6 +31,7 @@ import java.util.List;
 
 import butterknife.InjectView;
 import cControls.Custom_Flightlist_Adapter;
+import dbassist.dbhelp;
 import entity.Flight;
 import model.Dal;
 
@@ -55,6 +56,13 @@ public class FlightListFragment extends Fragment {
        // getActivity().getActionBar().setTitle("Current Departure");
 
            // Toast.makeText(getActivity(),bundle.getString("parms").toString(),Toast.LENGTH_SHORT).show();
+            dbhelp dbhelper=new dbhelp(getActivity());
+            dbhelper.MakeDB();
+
+            Dal data_ass=new Dal();
+
+            data_ass.getAirportList(getActivity());
+
 
         View view=inflater.inflate(R.layout.fragment_flight_list,container,false);
 
