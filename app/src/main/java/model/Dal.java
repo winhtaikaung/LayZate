@@ -84,4 +84,6 @@ public class Dal {
     return flist;
 
     }
+
+    public List<>
 }
