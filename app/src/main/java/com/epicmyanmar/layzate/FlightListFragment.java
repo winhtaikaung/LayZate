@@ -56,12 +56,7 @@ public class FlightListFragment extends Fragment {
        // getActivity().getActionBar().setTitle("Current Departure");
 
            // Toast.makeText(getActivity(),bundle.getString("parms").toString(),Toast.LENGTH_SHORT).show();
-            dbhelp dbhelper=new dbhelp(getActivity());
-            dbhelper.MakeDB();
 
-            Dal data_ass=new Dal();
-
-            data_ass.getAirportList(getActivity());
 
 
         View view=inflater.inflate(R.layout.fragment_flight_list,container,false);

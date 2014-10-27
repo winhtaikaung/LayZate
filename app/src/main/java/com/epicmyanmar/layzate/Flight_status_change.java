@@ -15,21 +15,36 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import cControls.Airport_spinner_adapter;
 import cControls.TimePeriod_spinner_adapter;
+import dbassist.dbhelp;
+import entity.Airport;
 import entity.TimePeriod;
+import model.Dal;
 
 
 public class Flight_status_change extends Activity {
 
     @InjectView(R.id.query_time_spin) Spinner mTimePeriod;
+    @InjectView(R.id.query_airport_spin) Spinner mAirport;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getActionBar().setTitle("Change Your Flight List");
         super.onCreate(savedInstanceState);
+
+        dbhelp dbhelper=new dbhelp(this);
+        dbhelper.MakeDB();
+        Dal dal=new Dal();
+
+        ArrayList<TimePeriod> mlist=new ArrayList<TimePeriod>();
+        ArrayList<Airport> mAirportList=new ArrayList<Airport>();
+
+
+
         setContentView(R.layout.flight_status_change);
         ButterKnife.inject(this);
-        ArrayList<TimePeriod> mlist=new ArrayList<TimePeriod>();
+
 
         String[] myArray = getResources().getStringArray(R.array.query_time_period);
 
@@ -40,13 +55,14 @@ public class Flight_status_change extends Activity {
             tItem.setValue(i);
             mlist.add(tItem);
         }
+        mAirportList=dal.getAirportList(this);
 
-
-
+        Airport_spinner_adapter mairport_spin_adapter=new Airport_spinner_adapter(this,android.R.layout.simple_spinner_item,mAirportList);
 
         TimePeriod_spinner_adapter mtime_spin_adapter=new TimePeriod_spinner_adapter(this,android.R.layout.simple_spinner_item,mlist);
 
         mTimePeriod.setAdapter(mtime_spin_adapter);
+        mAirport.setAdapter(mairport_spin_adapter);
 
 
     }

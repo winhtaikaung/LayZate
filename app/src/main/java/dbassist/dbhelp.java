@@ -39,13 +39,14 @@ import android.widget.Toast;
 public class dbhelp extends SQLiteOpenHelper {
 
 
-    private static String DB_PATH = "/data/data/com.epicmyanmar.layzate/databases/";
 
-    private static String DB_NAME = "lay_zate.db";
 
     private SQLiteDatabase myDataBase;
 
-    private final Context myContext;
+    private  final Context myContext;
+
+//    private static String DB_PATH =
+    private static String DB_NAME = "lay_zate.db";
 
     public dbhelp(Context context)
     {
@@ -87,7 +88,7 @@ public class dbhelp extends SQLiteOpenHelper {
         SQLiteDatabase checkDB = null;
 
         try{
-            String myPath = DB_PATH + DB_NAME;
+            String myPath = myContext.getDatabasePath("lay_zate.db").toString() + DB_NAME;
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
         }catch(SQLiteException e){
@@ -116,7 +117,7 @@ public class dbhelp extends SQLiteOpenHelper {
         InputStream myInput = myContext.getAssets().open(DB_NAME);
 
         // Path to the just created empty db
-        String outFileName = DB_PATH + DB_NAME;
+        String outFileName = myContext.getDatabasePath("lay_zate.db").toString() + DB_NAME;
 
         //Open the empty db as the output stream
         OutputStream myOutput = new FileOutputStream(outFileName);
@@ -138,7 +139,7 @@ public class dbhelp extends SQLiteOpenHelper {
     public void openDataBase() throws SQLException{
 
         //Open the database
-        String myPath = DB_PATH + DB_NAME;
+        String myPath = myContext.getDatabasePath("lay_zate.db").toString() + DB_NAME;
         myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
     }
@@ -159,7 +160,7 @@ public class dbhelp extends SQLiteOpenHelper {
 
             // if not exist
             try {
-                Toast.makeText(myContext, "Creating database....", Toast.LENGTH_SHORT).show();
+                Toast.makeText(myContext,myContext.getDatabasePath("lay_zate.db").toString(), Toast.LENGTH_LONG).show();
                 createDataBase();
                 copyDataBase();
             } catch (IOException e) {

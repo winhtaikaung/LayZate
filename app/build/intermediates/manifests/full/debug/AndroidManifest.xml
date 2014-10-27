@@ -18,15 +18,15 @@
         <activity
             android:name="com.epicmyanmar.layzate.MainActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.epicmyanmar.layzate.Flight_status_change"
+            android:label="@string/title_activity_flight_status_change" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.epicmyanmar.layzate.Flight_status_change"
-            android:label="@string/title_activity_flight_status_change" >
         </activity>
     </application>
 

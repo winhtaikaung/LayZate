@@ -94,10 +94,10 @@ public class Dal {
 
     }
 
-    public List<Airport> getAirportList(Context mContext){
+    public ArrayList<Airport> getAirportList(Context mContext){
         //dbhelper=new dbhelp(getClass().);
         dbhelper=new dbhelp(mContext);
-        List<Airport> mList=new ArrayList<Airport>();
+        ArrayList<Airport> mList=new ArrayList<Airport>();
 
         String SQL="SELECT * FROM tb_airport ORDER BY port_name";
         ArrayList dTable;
