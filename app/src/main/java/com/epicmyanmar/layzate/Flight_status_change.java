@@ -82,8 +82,8 @@ public class Flight_status_change extends Activity {
                 TimePeriod t=mlist.get(mTimePeriod.getSelectedItemPosition());
                 Airport a=mAirportList.get(mAirport.getSelectedItemPosition());
 
-
-                Toast.makeText(getApplication(),""+t.getValue()+""+a.getPort_code(),Toast.LENGTH_SHORT).show();
+                int entrytype=(rdostatus.getId()==R.id.rdo_deperture)?0:1;
+                Toast.makeText(getApplication(),rdostatus.getText().toString()+""+t.getValue()+""+a.getPort_code()+""+entrytype+"",Toast.LENGTH_SHORT).show();
             }
         });
 
