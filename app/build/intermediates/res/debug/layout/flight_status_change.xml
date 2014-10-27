@@ -56,15 +56,31 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Departure"
-            android:id="@+id/radioButton" />
+            android:checked="true"
+            android:id="@+id/rdo_deperture" />
 
         <RadioButton
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Arrival"
-            android:id="@+id/radioButton2"
+            android:id="@+id/rdo_arrival"
             android:layout_weight="1" />
     </RadioGroup>
   </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Query"
+            android:id="@+id/btn_query"
+            android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+
 
 </LinearLayout><!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/layout/flight_status_change.xml -->

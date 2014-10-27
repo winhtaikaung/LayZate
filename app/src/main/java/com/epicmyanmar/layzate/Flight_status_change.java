@@ -7,6 +7,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -27,6 +30,10 @@ public class Flight_status_change extends Activity {
 
     @InjectView(R.id.query_time_spin) Spinner mTimePeriod;
     @InjectView(R.id.query_airport_spin) Spinner mAirport;
+    @InjectView(R.id.btn_query) Button btn_Query;
+    @InjectView(R.id.rdoGroupStatus)  RadioGroup rdo_groupstatus;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +44,8 @@ public class Flight_status_change extends Activity {
         dbhelper.MakeDB();
         Dal dal=new Dal();
 
-        ArrayList<TimePeriod> mlist=new ArrayList<TimePeriod>();
-        ArrayList<Airport> mAirportList=new ArrayList<Airport>();
+        final ArrayList<TimePeriod> mlist=new ArrayList<TimePeriod>();
+        final ArrayList<Airport> mAirportList=new ArrayList<Airport>();
 
 
 
@@ -55,15 +62,30 @@ public class Flight_status_change extends Activity {
             tItem.setValue(i);
             mlist.add(tItem);
         }
-        mAirportList=dal.getAirportList(this);
+        for(Airport a:dal.getAirportList(this)){
+            mAirportList.add(a);
+        }
 
-        Airport_spinner_adapter mairport_spin_adapter=new Airport_spinner_adapter(this,android.R.layout.simple_spinner_item,mAirportList);
+
+        final Airport_spinner_adapter mairport_spin_adapter=new Airport_spinner_adapter(this,android.R.layout.simple_spinner_item,mAirportList);
 
         TimePeriod_spinner_adapter mtime_spin_adapter=new TimePeriod_spinner_adapter(this,android.R.layout.simple_spinner_item,mlist);
 
         mTimePeriod.setAdapter(mtime_spin_adapter);
         mAirport.setAdapter(mairport_spin_adapter);
 
+        btn_Query.setOnClickListener(new View.OnClickListener() {
+            RadioButton rdostatus;
+            @Override
+            public void onClick(View view) {
+                rdostatus=(RadioButton) findViewById(rdo_groupstatus.getCheckedRadioButtonId());
+                TimePeriod t=mlist.get(mTimePeriod.getSelectedItemPosition());
+                Airport a=mAirportList.get(mAirport.getSelectedItemPosition());
+
+
+                Toast.makeText(getApplication(),""+t.getValue()+""+a.getPort_code(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
