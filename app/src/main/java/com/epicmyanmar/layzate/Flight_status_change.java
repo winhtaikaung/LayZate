@@ -1,6 +1,7 @@
 package com.epicmyanmar.layzate;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -67,7 +68,7 @@ public class Flight_status_change extends Activity {
         }
 
 
-        final Airport_spinner_adapter mairport_spin_adapter=new Airport_spinner_adapter(this,android.R.layout.simple_spinner_item,mAirportList);
+        Airport_spinner_adapter mairport_spin_adapter=new Airport_spinner_adapter(this,android.R.layout.simple_spinner_item,mAirportList);
 
         TimePeriod_spinner_adapter mtime_spin_adapter=new TimePeriod_spinner_adapter(this,android.R.layout.simple_spinner_item,mlist);
 
@@ -84,6 +85,11 @@ public class Flight_status_change extends Activity {
 
                 int entrytype=(rdostatus.getId()==R.id.rdo_deperture)?0:1;
                 Toast.makeText(getApplication(),rdostatus.getText().toString()+""+t.getValue()+""+a.getPort_code()+""+entrytype+"",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                intent.putExtra("airportQueryTimePeriod",""+t.getValue()+"");
+                intent.putExtra("airportQueryType",""+entrytype+"");
+                intent.putExtra("Airport",""+a.getPort_code()+"");
+                startActivity(intent);
             }
         });
 

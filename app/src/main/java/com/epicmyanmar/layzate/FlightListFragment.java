@@ -27,7 +27,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.InjectView;
 import cControls.Custom_Flightlist_Adapter;
@@ -41,6 +43,7 @@ import model.Dal;
  */
 public class FlightListFragment extends Fragment {
     private static final String URL_STRING_REQ = "http://www.flightstats.com/go/weblet?guid=34b64945a69b9cac:a51bccf:12d54dfa33f:-5bfe&weblet=status&action=AirportFlightStatus&airportCode=RGN";
+    private static final String URL_STRING_NO_LOCATION = "http://www.flightstats.com/go/weblet?guid=34b64945a69b9cac:a51bccf:12d54dfa33f:-5bfe&weblet=status&action=AirportFlightStatus&airportCode=";
     private Custom_Flightlist_Adapter custom_flightlist_adapter;
     List<Flight> mFlightListItem=new ArrayList<Flight>();
     ListView listView;
@@ -51,11 +54,11 @@ public class FlightListFragment extends Fragment {
         @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         //   Bundle bundle = this.getArguments();
+            final Bundle bundle = this.getArguments();
             setHasOptionsMenu(true);
        // getActivity().getActionBar().setTitle("Current Departure");
 
-           // Toast.makeText(getActivity(),bundle.getString("parms").toString(),Toast.LENGTH_SHORT).show();
+           Toast.makeText(getActivity(),bundle.getString("Airport").toString(),Toast.LENGTH_SHORT).show();
 
 
 
@@ -75,8 +78,8 @@ public class FlightListFragment extends Fragment {
             * Volley Http Request with list Adapter Binding
             * */
             RequestQueue queue = Volley.newRequestQueue(getActivity());
-            StringRequest strReq = new StringRequest(Request.Method.GET,
-                    URL_STRING_REQ, new Response.Listener<String>() {
+            StringRequest strReq = new StringRequest(Request.Method.POST,(bundle.getString("Airport").isEmpty())?
+                    URL_STRING_REQ:URL_STRING_NO_LOCATION+bundle.getString("Airport"), new Response.Listener<String>() {
                 List<Flight> flist=new ArrayList<Flight>();
 
                 @Override
@@ -106,7 +109,21 @@ public class FlightListFragment extends Fragment {
                     VolleyLog.d("Error", "Error: " + error.getMessage());
 
                 }
-            });
+            }){
+                @Override
+                protected Map<String,String> getParams(){
+                    Map<String,String> params = new HashMap<String, String>();
+                    params.put("language","");
+                    params.put("startAction","AirportFlightStatus");
+                    params.put("airportQueryTimePeriod", bundle.getString("airportQueryTimePeriod"));
+                    params.put("imageColor","orange");
+                    params.put("airportQueryType",bundle.getString("airportQueryType"));
+
+                    return params;
+                }
+
+
+            };
 
             // Adding request to request queue
             queue.add(strReq);
@@ -144,7 +161,7 @@ public class FlightListFragment extends Fragment {
         //showProgressDialog();
 
         RequestQueue queue = Volley.newRequestQueue(getActivity());
-        StringRequest strReq = new StringRequest(Request.Method.GET,
+        StringRequest strReq = new StringRequest(Request.Method.POST,
                 URL_STRING_REQ, new Response.Listener<String>() {
             List<Flight> flist=new ArrayList<Flight>();
 
@@ -161,7 +178,19 @@ public class FlightListFragment extends Fragment {
                 VolleyLog.d("Error", "Error: " + error.getMessage());
 
             }
-        });
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("language", "English");
+                params.put("startAction", "AirportFlightStatus");
+                params.put("airportQueryTimePeriod", "5");
+                params.put("imageColor", "orange");
+                params.put("airportQueryType", "0");
+
+                return params;
+            }
+        };
 
         // Adding request to request queue
         queue.add(strReq);

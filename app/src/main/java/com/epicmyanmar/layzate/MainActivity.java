@@ -1,8 +1,10 @@
 package com.epicmyanmar.layzate;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,13 +55,22 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent= getIntent();
+        String airportQueryTimePeriod=intent.getStringExtra("airportQueryTimePeriod");
+        String airportQueryType=intent.getStringExtra("airportQueryType");
+        String Airport=intent.getStringExtra("Airport");
+
         setContentView(R.layout.activity_main);
        txt_status=(TextView) findViewById(R.id.txt_status);
+
 
         if(savedInstanceState==null){
             //passing values to bundle
             Bundle bundle=new Bundle();
-            bundle.putString("parms","WHA WHA");
+
+            bundle.putString("airportQueryTimePeriod",airportQueryTimePeriod);
+            bundle.putString("airportQueryType",airportQueryType);
+            bundle.putString("Airport",Airport);
             flightListFragment=new FlightListFragment();
             flightListFragment.setArguments(bundle);
 

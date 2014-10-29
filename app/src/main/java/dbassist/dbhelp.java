@@ -88,7 +88,7 @@ public class dbhelp extends SQLiteOpenHelper {
         SQLiteDatabase checkDB = null;
 
         try{
-            String myPath = myContext.getDatabasePath("lay_zate.db").toString() + DB_NAME;
+            String myPath = myContext.getDatabasePath("lay_zate.db").toString();
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
         }catch(SQLiteException e){
@@ -117,7 +117,7 @@ public class dbhelp extends SQLiteOpenHelper {
         InputStream myInput = myContext.getAssets().open(DB_NAME);
 
         // Path to the just created empty db
-        String outFileName = myContext.getDatabasePath("lay_zate.db").toString() + DB_NAME;
+        String outFileName = myContext.getDatabasePath("lay_zate.db").toString();
 
         //Open the empty db as the output stream
         OutputStream myOutput = new FileOutputStream(outFileName);
@@ -139,7 +139,7 @@ public class dbhelp extends SQLiteOpenHelper {
     public void openDataBase() throws SQLException{
 
         //Open the database
-        String myPath = myContext.getDatabasePath("lay_zate.db").toString() + DB_NAME;
+        String myPath = myContext.getDatabasePath("lay_zate.db").toString();
         myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
     }
