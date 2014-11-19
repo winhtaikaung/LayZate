@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">လေဆိပ်</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">ြပင်ဆင်ရန်</string>
+    <string name="title_activity_flight_list">ေလယဉ် စာရင်း</string>
+
+    <string name="title_activity_flight_status_change">လေဆိပ်</string>
+
+    <string-array name="query_time_period">
+        <item>ေကျးဇူးြပ ု၍ အချိန်ကိုေရွးေပးပါ</item>
+        <item>၁၂:၀၀ နံနက် - ၃:၀၀ နံနက်</item>
+        <item>3:00 AM - 6:00 AM</item>
+        <item>6:00 AM - 9:00 AM</item>
+        <item>9:00 AM - 12:00 PM</item>
+        <item>12:00 PM - 3:00 PM</item>
+        <item>3:00 PM - 6:00 PM</item>
+        <item>6:00 PM - 9:00 PM</item>
+        <item>9:00 PM - 12:00 AM</item>
+    </string-array>
+
+    <string-array name="airport_names">
+        <item>Please Select Airport</item>
+        <item>12:00 AM - 3:00 AM</item>
+        <item>3:00 AM - 6:00 AM</item>
+        <item>6:00 AM - 9:00 AM</item>
+        <item>9:00 AM - 12:00 PM</item>
+        <item>12:00 PM - 3:00 PM</item>
+        <item>3:00 PM - 6:00 PM</item>
+        <item>6:00 PM - 9:00 PM</item>
+        <item>9:00 PM - 12:00 AM</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/values-my/strings.xml -->
+    <eat-comment/>
+    <string-array name="airport_names">
+        <item>Please Select Airport</item>
+        <item>12:00 AM - 3:00 AM</item>
+        <item>3:00 AM - 6:00 AM</item>
+        <item>6:00 AM - 9:00 AM</item>
+        <item>9:00 AM - 12:00 PM</item>
+        <item>12:00 PM - 3:00 PM</item>
+        <item>3:00 PM - 6:00 PM</item>
+        <item>6:00 PM - 9:00 PM</item>
+        <item>9:00 PM - 12:00 AM</item>
+    </string-array>
+    <string-array name="query_time_period">
+        <item>ေကျးဇူးြပ ု၍ အချိန်ကိုေရွးေပးပါ</item>
+        <item>၁၂:၀၀ နံနက် - ၃:၀၀ နံနက်</item>
+        <item>3:00 AM - 6:00 AM</item>
+        <item>6:00 AM - 9:00 AM</item>
+        <item>9:00 AM - 12:00 PM</item>
+        <item>12:00 PM - 3:00 PM</item>
+        <item>3:00 PM - 6:00 PM</item>
+        <item>6:00 PM - 9:00 PM</item>
+        <item>9:00 PM - 12:00 AM</item>
+    </string-array>
+    <!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/values-my/color.xml -->
+    <eat-comment/>
+    <color name="primary">#ff3991ff</color>
+    <color name="primary_pressed">#ff8d97ff</color>
+    <color name="ripple">#ff6764d2</color>
+    <!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/values-my/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/values-my/strings.xml -->
+    <eat-comment/>
+    <string name="action_settings">ြပင်ဆင်ရန်</string>
+    <string name="app_name">လေဆိပ်</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_flight_list">ေလယဉ် စာရင်း</string>
+    <string name="title_activity_flight_status_change">လေဆိပ်</string>
+    <!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/values-my/styles.xml -->
+    <eat-comment/>
+    <style name="ActionBar.Solid.Apptheme" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/ab_solid_apptheme</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_apptheme</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_apptheme</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Apptheme</item>
+    </style>
+    <style name="ActionBar.Transparent.Apptheme" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_apptheme</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Apptheme</item>
+    </style>
+    <style name="ActionBarTabStyle.Apptheme" parent="@android:style/Widget.Holo.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_apptheme</item>
+    </style>
+    <style name="ActionButton.CloseMode.Apptheme" parent="@android:style/Widget.Holo.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_apptheme</item>
+    </style>
+    <style name="DropDownListView.Apptheme" parent="@android:style/Widget.Holo.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_apptheme</item>
+    </style>
+    <style name="DropDownNav.Apptheme" parent="@android:style/Widget.Holo.Spinner">
+        <item name="android:background">@drawable/spinner_background_ab_apptheme</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_apptheme</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_apptheme</item>
+    </style>
+    <style name="PopupMenu.Apptheme" parent="@android:style/Widget.Holo.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_apptheme</item>
+    </style>
+    <style name="ProgressBar.Apptheme" parent="@android:style/Widget.Holo.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_apptheme</item>
+    </style>
+    <style name="Theme.Apptheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_apptheme</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Apptheme</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Apptheme</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Apptheme</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Apptheme</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Apptheme</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_apptheme</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_apptheme</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Apptheme</item>
+
+        <!-- Light.DarkActionBar specific -->
+        <item name="android:actionBarWidgetTheme">@style/Theme.Apptheme.Widget</item>
+
+    </style>
+    <style name="Theme.Apptheme.Widget" parent="@android:style/Theme.Holo">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Apptheme</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Apptheme</item>
+    </style>
+</resources>

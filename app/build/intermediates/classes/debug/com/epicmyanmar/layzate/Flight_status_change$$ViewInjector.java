@@ -7,13 +7,13 @@ import butterknife.ButterKnife.Finder;
 public class Flight_status_change$$ViewInjector {
   public static void inject(Finder finder, final com.epicmyanmar.layzate.Flight_status_change target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131296272, "field 'mTimePeriod'");
+    view = finder.findRequiredView(source, 2131230739, "field 'mTimePeriod'");
     target.mTimePeriod = (android.widget.Spinner) view;
-    view = finder.findRequiredView(source, 2131296273, "field 'mAirport'");
+    view = finder.findRequiredView(source, 2131230740, "field 'mAirport'");
     target.mAirport = (android.widget.Spinner) view;
-    view = finder.findRequiredView(source, 2131296277, "field 'btn_Query'");
-    target.btn_Query = (android.widget.Button) view;
-    view = finder.findRequiredView(source, 2131296274, "field 'rdo_groupstatus'");
+    view = finder.findRequiredView(source, 2131230744, "field 'btn_Query'");
+    target.btn_Query = (com.getbase.floatingactionbutton.FloatingActionButton) view;
+    view = finder.findRequiredView(source, 2131230741, "field 'rdo_groupstatus'");
     target.rdo_groupstatus = (android.widget.RadioGroup) view;
   }
 

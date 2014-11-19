@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AddFloatingActionButton"><attr format="color" name="fab_plusIconColor"/></declare-styleable>
+    <declare-styleable name="FloatingActionButton"><attr format="color" name="fab_colorPressed"/><attr format="color" name="fab_colorNormal"/><attr format="reference" name="fab_icon"/><attr format="enum" name="fab_size"><enum name="normal" value="0"/><enum name="mini" value="1"/></attr></declare-styleable>
+    <declare-styleable name="FloatingActionsMenu"><attr format="color" name="fab_addButtonColorPressed"/><attr format="color" name="fab_addButtonColorNormal"/><attr format="color" name="fab_addButtonPlusIconColor"/></declare-styleable>
+    <!-- From: file:/Users/chalup/src/FloatingActionButton2/library/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="fab_actions_spacing">16dp</dimen>
+    <dimen name="fab_icon_size">24dp</dimen>
+    <dimen name="fab_plus_icon_size">14dp</dimen>
+    <dimen name="fab_plus_icon_stroke">2dp</dimen>
+    <dimen name="fab_shadow_offset">3dp</dimen>
+    <dimen name="fab_shadow_radius">9dp</dimen>
+    <dimen name="fab_size_mini">40dp</dimen>
+    <dimen name="fab_size_normal">56dp</dimen>
+    <dimen name="fab_stroke_width">0.5dp</dimen>
+    <!-- From: file:/Users/chalup/src/FloatingActionButton2/library/src/main/res/values/ids.xml -->
+    <eat-comment/>
+    <item name="fab_expand_menu_button" type="id"/>
+</resources>

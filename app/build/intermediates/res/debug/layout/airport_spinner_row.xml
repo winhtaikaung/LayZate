@@ -4,9 +4,13 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/txt_airport_name"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Airport Name"
+        android:layout_height="50dp"
+
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
         android:gravity="center"
-        android:id="@+id/txt_airport_name" />
+
+         />
 </LinearLayout><!-- From: file:/home/jr/AndroidStudioProjects/LayZate/app/src/main/res/layout/airport_spinner_row.xml -->

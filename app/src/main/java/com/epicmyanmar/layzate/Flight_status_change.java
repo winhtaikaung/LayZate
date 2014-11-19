@@ -1,7 +1,11 @@
 package com.epicmyanmar.layzate;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,10 +13,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.getbase.floatingactionbutton.FloatingActionButton;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,14 +39,15 @@ public class Flight_status_change extends Activity {
 
     @InjectView(R.id.query_time_spin) Spinner mTimePeriod;
     @InjectView(R.id.query_airport_spin) Spinner mAirport;
-    @InjectView(R.id.btn_query) Button btn_Query;
+    @InjectView(R.id.btn_query)
+    FloatingActionButton btn_Query;
     @InjectView(R.id.rdoGroupStatus)  RadioGroup rdo_groupstatus;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getActionBar().setTitle("Change Your Flight List");
+        getActionBar().setTitle("Select Airport & Time");
         super.onCreate(savedInstanceState);
 
         dbhelp dbhelper=new dbhelp(this);
@@ -52,6 +61,7 @@ public class Flight_status_change extends Activity {
 
         setContentView(R.layout.flight_status_change);
         ButterKnife.inject(this);
+
 
 
         String[] myArray = getResources().getStringArray(R.array.query_time_period);
@@ -94,6 +104,8 @@ public class Flight_status_change extends Activity {
         });
 
     }
+
+
 
 
     @Override

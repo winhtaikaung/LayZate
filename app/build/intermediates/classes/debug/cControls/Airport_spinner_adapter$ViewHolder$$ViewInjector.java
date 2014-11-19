@@ -7,7 +7,7 @@ import butterknife.ButterKnife.Finder;
 public class Airport_spinner_adapter$ViewHolder$$ViewInjector {
   public static void inject(Finder finder, final cControls.Airport_spinner_adapter.ViewHolder target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131296258, "field 'txt_airport_name'");
+    view = finder.findRequiredView(source, 2131230725, "field 'txt_airport_name'");
     target.txt_airport_name = (android.widget.TextView) view;
   }
 

@@ -5,8 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_flight_list">Flight List</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_flight_status_change">Flight_status_change</string>
+
+    <string name="title_activity_flight_status_change">Lay Zate</string>
 
     <string-array name="query_time_period">
         <item>Please Select Time Period</item>

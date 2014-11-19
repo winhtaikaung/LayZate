@@ -1,7 +1,12 @@
 package com.epicmyanmar.layzate;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
@@ -9,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
@@ -54,6 +60,8 @@ public class MainActivity extends Activity {
     public static   TextView txt_status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ColorDrawable colorDrawable = new ColorDrawable(Color.WHITE);
+
         super.onCreate(savedInstanceState);
         Intent intent= getIntent();
         String airportQueryTimePeriod=intent.getStringExtra("airportQueryTimePeriod");
@@ -62,6 +70,8 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
        txt_status=(TextView) findViewById(R.id.txt_status);
+
+
 
 
         if(savedInstanceState==null){

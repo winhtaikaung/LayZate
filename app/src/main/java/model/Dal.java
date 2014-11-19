@@ -99,7 +99,7 @@ public class Dal {
         dbhelper=new dbhelp(mContext);
         ArrayList<Airport> mList=new ArrayList<Airport>();
 
-        String SQL="SELECT * FROM tb_airport ORDER BY port_name";
+        String SQL="SELECT * FROM tb_airport ORDER BY id";
         ArrayList dTable;
         try{
             dTable= dbhelper.getDataTable(SQL);

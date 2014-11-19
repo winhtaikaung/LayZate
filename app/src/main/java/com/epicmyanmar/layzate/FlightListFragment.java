@@ -3,9 +3,12 @@ package com.epicmyanmar.layzate;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.os.Handler;
@@ -51,92 +54,101 @@ public class FlightListFragment extends Fragment {
 
 
 
-        @Override
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-            final Bundle bundle = this.getArguments();
-            setHasOptionsMenu(true);
-       // getActivity().getActionBar().setTitle("Current Departure");
+        getActivity().getActionBar().setTitle("Departure List on Yangon Airport");
 
-           Toast.makeText(getActivity(),bundle.getString("Airport").toString(),Toast.LENGTH_SHORT).show();
+        final Bundle bundle = this.getArguments();
+        setHasOptionsMenu(true);
+        // getActivity().getActionBar().setTitle("Current Departure");
+
+        Toast.makeText(getActivity(),bundle.getString("Airport").toString(),Toast.LENGTH_SHORT).show();
 
 
 
         View view=inflater.inflate(R.layout.fragment_flight_list,container,false);
 
-        listView=(ListView) view.findViewById(R.id.listview_flight);
+
+
+        // changing action bar color
+
+            /*
+            * Volley Http Request with list Adapter Binding
+            * */
+
+        boolean connection =checkConnection();
+        if(connection)
+        {
+            listView=(ListView) view.findViewById(R.id.listview_flight);
 
             pDialog = new ProgressDialog(getActivity());
             // Showing progress dialog before making http request
             pDialog.setMessage("Loading...");
             pDialog.show();
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        StringRequest strReq = new StringRequest(Request.Method.POST, (bundle.getString("Airport").isEmpty()) ?
+                URL_STRING_REQ : URL_STRING_NO_LOCATION + bundle.getString("Airport"), new Response.Listener<String>() {
+            List<Flight> flist = new ArrayList<Flight>();
 
-            // changing action bar color
-            getActivity().getActionBar().setBackgroundDrawable(
-                    new ColorDrawable(Color.parseColor("#1b1b1b")));
-            /*
-            * Volley Http Request with list Adapter Binding
-            * */
-            RequestQueue queue = Volley.newRequestQueue(getActivity());
-            StringRequest strReq = new StringRequest(Request.Method.POST,(bundle.getString("Airport").isEmpty())?
-                    URL_STRING_REQ:URL_STRING_NO_LOCATION+bundle.getString("Airport"), new Response.Listener<String>() {
-                List<Flight> flist=new ArrayList<Flight>();
+            @Override
+            public void onResponse(String response) {
+                hidePDialog();
+                Dal dal = new Dal();
 
-                @Override
-                public void onResponse(String response) {
-                    hidePDialog();
-                    Dal dal=new Dal();
+                mFlightListItem = dal.getflightList(response);
+                if (mFlightListItem.size() == 0) {
 
-                    mFlightListItem=dal.getflightList(response);
-                    if(mFlightListItem.size()==0) {
-
-                        custom_flightlist_adapter = new Custom_Flightlist_Adapter(getActivity(), mFlightListItem);
-                        listView.setAdapter(custom_flightlist_adapter);
-                        custom_flightlist_adapter.notifyDataSetChanged();
-                        MainActivity.txt_status.setText("No Flight Information \n \nPlease Try again Later");
-                    }else{
-                        custom_flightlist_adapter = new Custom_Flightlist_Adapter(getActivity(), mFlightListItem);
-                        listView.setAdapter(custom_flightlist_adapter);
-                        custom_flightlist_adapter.notifyDataSetChanged();
-                    }
-
-
-                }
-            }, new Response.ErrorListener() {
-
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    VolleyLog.d("Error", "Error: " + error.getMessage());
-
-                }
-            }){
-                @Override
-                protected Map<String,String> getParams(){
-                    Map<String,String> params = new HashMap<String, String>();
-                    params.put("language","");
-                    params.put("startAction","AirportFlightStatus");
-                    params.put("airportQueryTimePeriod", bundle.getString("airportQueryTimePeriod"));
-                    params.put("imageColor","orange");
-                    params.put("airportQueryType",bundle.getString("airportQueryType"));
-
-                    return params;
+                    custom_flightlist_adapter = new Custom_Flightlist_Adapter(getActivity(), mFlightListItem);
+                    listView.setAdapter(custom_flightlist_adapter);
+                    custom_flightlist_adapter.notifyDataSetChanged();
+                    MainActivity.txt_status.setText("No Flight Information \n \nPlease Try again Later");
+                } else {
+                    custom_flightlist_adapter = new Custom_Flightlist_Adapter(getActivity(), mFlightListItem);
+                    listView.setAdapter(custom_flightlist_adapter);
+                    custom_flightlist_adapter.notifyDataSetChanged();
                 }
 
 
-            };
+            }
+        }, new Response.ErrorListener() {
 
-            // Adding request to request queue
-            queue.add(strReq);
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Error", "Error: " + error.getMessage());
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("language", "");
+                params.put("startAction", "AirportFlightStatus");
+                params.put("airportQueryTimePeriod", bundle.getString("airportQueryTimePeriod"));
+                params.put("imageColor", "orange");
+                params.put("airportQueryType", bundle.getString("airportQueryType"));
+
+                return params;
+            }
+
+
+        };
+
+        // Adding request to request queue
+        queue.add(strReq);
             /*
             * add click listener on each items
             * */
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    String forecast=mFlightListItem.get(i).getArrival_departure_time();
-                    Toast.makeText(getActivity(),forecast,Toast.LENGTH_SHORT).show();
-                }
-            });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String forecast = mFlightListItem.get(i).getArrival_departure_time();
+                Toast.makeText(getActivity(), forecast, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }else{
+            MainActivity.txt_status.setText("No Internet Connection");
+    }
 
 
         return view;
@@ -144,11 +156,20 @@ public class FlightListFragment extends Fragment {
 
     }
 
+    private boolean checkConnection(){
 
-    private void showdetailDialog(){
+        ConnectivityManager connectManager=(ConnectivityManager)this.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectManager.getActiveNetworkInfo();
+
+        boolean isConnected = networkInfo != null &&
+                networkInfo.isConnectedOrConnecting();
+        if(isConnected){
+            return true;
+        }else{
+            return false;
+        }
 
     }
-
     private void hidePDialog() {
         if (pDialog != null) {
             pDialog.dismiss();

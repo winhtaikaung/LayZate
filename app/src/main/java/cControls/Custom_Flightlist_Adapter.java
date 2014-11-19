@@ -67,7 +67,7 @@ public class Custom_Flightlist_Adapter extends ArrayAdapter {
 
         }
 
-        holder.flightname.setText(mFlights.get(position).getFlightname());
+        holder.flightname.setText(mFlights.get(position).getFlightname().replace("^",""));
         holder.arriv_depart_time.setText(mFlights.get(position).getArrival_departure_time());
         holder.origin_destination.setText(mFlights.get(position).getOrigin_destination());
 
