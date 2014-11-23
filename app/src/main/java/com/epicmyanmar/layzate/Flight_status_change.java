@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +24,8 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -77,6 +80,9 @@ public class Flight_status_change extends Activity {
             mAirportList.add(a);
         }
 
+        Calendar c=Calendar.getInstance();
+        Time t=new Time();
+        Toast.makeText(this,""+c.getTime().getHours()+"",Toast.LENGTH_LONG).show();
 
         Airport_spinner_adapter mairport_spin_adapter=new Airport_spinner_adapter(this,android.R.layout.simple_spinner_item,mAirportList);
 

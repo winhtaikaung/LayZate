@@ -2,6 +2,7 @@ package com.epicmyanmar.layzate;
 
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.os.Handler;
@@ -17,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,10 +37,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 import cControls.Custom_Flightlist_Adapter;
 import dbassist.dbhelp;
 import entity.Flight;
+import me.drakeet.materialdialog.MaterialDialog;
 import model.Dal;
 
 
@@ -139,13 +144,7 @@ public class FlightListFragment extends Fragment {
             /*
             * add click listener on each items
             * */
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String forecast = mFlightListItem.get(i).getArrival_departure_time();
-                Toast.makeText(getActivity(), forecast, Toast.LENGTH_SHORT).show();
-            }
-        });
+        listView.setOnItemClickListener(new ListViewOnItemclickListener());
     }else{
             MainActivity.txt_status.setText("No Internet Connection");
     }
@@ -154,6 +153,56 @@ public class FlightListFragment extends Fragment {
         return view;
 
 
+    }
+
+    public class ListViewOnItemclickListener implements AdapterView.OnItemClickListener{
+        @InjectView(R.id.tv_status) TextView tv_status;
+        @InjectView(R.id.tvCarriername) TextView tvCarriername;
+        @InjectView(R.id.tvOrigin_Destination) TextView tvOrigin_Destination;
+        @InjectView(R.id.tvFlightname) TextView tvFlightname;
+
+        @InjectView(R.id.btn_ok) Button btn_ok;
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+           if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT){
+               View customview=LayoutInflater.from(getActivity()).inflate(R.layout.dialog_flight_detail,null);
+               final MaterialDialog materialDialog=new MaterialDialog(getActivity())
+                       .setContentView(customview)
+                       .setTitle("Flight Detail");
+               ButterKnife.inject(this,customview);
+               btn_ok.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       materialDialog.dismiss();
+                   }
+               });
+               materialDialog.show();
+
+
+           }else {
+
+
+               Flight mflight = new Flight();
+               mflight = mFlightListItem.get(i);
+               final Dialog dialog = new Dialog(getActivity());
+               dialog.setContentView(R.layout.dialog_flight_detail);
+               dialog.setTitle("Title...");
+               ButterKnife.inject(this, dialog);
+
+               btn_ok.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       Toast.makeText(getActivity(), " OK ", Toast.LENGTH_SHORT).show();
+                       dialog.dismiss();
+
+                   }
+               });
+
+               dialog.show();
+               tv_status.setText("Hello");
+           }
+        }
     }
 
     private boolean checkConnection(){

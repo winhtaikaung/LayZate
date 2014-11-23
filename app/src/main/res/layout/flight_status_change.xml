@@ -82,8 +82,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_margin="16dp"
-
-
+            android:src="@drawable/planelogo"
             fab:fab_colorNormal="@color/primary"
             fab:fab_colorPressed="@color/primary_pressed"
              />

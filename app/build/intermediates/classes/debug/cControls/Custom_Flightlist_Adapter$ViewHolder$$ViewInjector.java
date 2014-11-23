@@ -7,11 +7,11 @@ import butterknife.ButterKnife.Finder;
 public class Custom_Flightlist_Adapter$ViewHolder$$ViewInjector {
   public static void inject(Finder finder, final cControls.Custom_Flightlist_Adapter.ViewHolder target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131230736, "field 'flightname'");
+    view = finder.findRequiredView(source, 2131230742, "field 'flightname'");
     target.flightname = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131230738, "field 'arriv_depart_time'");
+    view = finder.findRequiredView(source, 2131230744, "field 'arriv_depart_time'");
     target.arriv_depart_time = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131230737, "field 'origin_destination'");
+    view = finder.findRequiredView(source, 2131230743, "field 'origin_destination'");
     target.origin_destination = (android.widget.TextView) view;
   }
 
