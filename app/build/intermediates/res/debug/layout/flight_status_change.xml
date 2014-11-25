@@ -17,6 +17,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Flight Time"
+        android:textStyle="bold"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
         android:gravity="center"
         android:layout_weight="3"
         />
@@ -36,6 +38,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Airport Name"
+            android:textStyle="bold"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
             android:gravity="center"
             android:layout_weight="3"
             />
