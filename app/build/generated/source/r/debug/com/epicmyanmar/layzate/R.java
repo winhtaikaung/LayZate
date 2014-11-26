@@ -195,10 +195,14 @@ containing a value of this type.
         public static final int cardview_light_background=0x7f060003;
         public static final int cardview_shadow_end_color=0x7f060004;
         public static final int cardview_shadow_start_color=0x7f060005;
-        public static final int lite_blue=0x7f060006;
-        public static final int primary=0x7f060007;
-        public static final int primary_pressed=0x7f060008;
-        public static final int ripple=0x7f060009;
+        public static final int green=0x7f060006;
+        public static final int lite_blue=0x7f060007;
+        public static final int orange=0x7f060008;
+        public static final int primary=0x7f060009;
+        public static final int primary_pressed=0x7f06000a;
+        public static final int red=0x7f06000b;
+        public static final int ripple=0x7f06000c;
+        public static final int yellow=0x7f06000d;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f070000;
@@ -260,47 +264,46 @@ containing a value of this type.
         public static final int tab_unselected_pressed_apptheme=0x7f020028;
     }
     public static final class id {
-        public static final int action_settings=0x7f080028;
-        public static final int btn_ok=0x7f08000b;
-        public static final int btn_query=0x7f08001e;
-        public static final int buttonLayout=0x7f080025;
+        public static final int action_settings=0x7f080027;
+        public static final int btn_query=0x7f08001d;
+        public static final int buttonLayout=0x7f080024;
         public static final int container=0x7f080003;
-        public static final int contentView=0x7f080021;
-        public static final int empty_view=0x7f080026;
+        public static final int contentView=0x7f080020;
+        public static final int empty_view=0x7f080025;
         public static final int fab_expand_menu_button=0x7f080000;
-        public static final int listview_flight=0x7f08001f;
-        public static final int material_background=0x7f080020;
-        public static final int message=0x7f080024;
-        public static final int message_content_view=0x7f080023;
+        public static final int listview_flight=0x7f08001e;
+        public static final int material_background=0x7f08001f;
+        public static final int message=0x7f080023;
+        public static final int message_content_view=0x7f080022;
         public static final int mini=0x7f080001;
         public static final int normal=0x7f080002;
-        public static final int query_airport_spin=0x7f08001a;
-        public static final int query_time_spin=0x7f080019;
-        public static final int rdoGroupStatus=0x7f08001b;
-        public static final int rdo_arrival=0x7f08001d;
-        public static final int rdo_deperture=0x7f08001c;
-        public static final int textView=0x7f08000c;
-        public static final int textView10=0x7f080015;
-        public static final int textView2=0x7f08000e;
-        public static final int textView3=0x7f080010;
-        public static final int textView4=0x7f080012;
-        public static final int textView5=0x7f080014;
-        public static final int textView6=0x7f08000d;
-        public static final int textView7=0x7f08000f;
-        public static final int textView8=0x7f080011;
-        public static final int textView9=0x7f080013;
-        public static final int title=0x7f080022;
+        public static final int query_airport_spin=0x7f080019;
+        public static final int query_time_spin=0x7f080018;
+        public static final int rdoGroupStatus=0x7f08001a;
+        public static final int rdo_arrival=0x7f08001c;
+        public static final int rdo_deperture=0x7f08001b;
+        public static final int textView=0x7f08000b;
+        public static final int textView10=0x7f080014;
+        public static final int textView2=0x7f08000d;
+        public static final int textView3=0x7f08000f;
+        public static final int textView4=0x7f080011;
+        public static final int textView5=0x7f080013;
+        public static final int textView6=0x7f08000c;
+        public static final int textView7=0x7f08000e;
+        public static final int textView8=0x7f080010;
+        public static final int textView9=0x7f080012;
+        public static final int title=0x7f080021;
         public static final int tvCarriername=0x7f080007;
         public static final int tvFlightname=0x7f080006;
         public static final int tvOrigin_Destination=0x7f080008;
         public static final int tv_Arrival_Departure_time=0x7f080009;
         public static final int tv_status=0x7f08000a;
         public static final int txt_airport_name=0x7f080005;
-        public static final int txt_arrival_departure=0x7f080018;
-        public static final int txt_origin_destination=0x7f080017;
+        public static final int txt_arrival_departure=0x7f080017;
+        public static final int txt_origin_destination=0x7f080016;
         public static final int txt_status=0x7f080004;
-        public static final int txt_time_period=0x7f080027;
-        public static final int txtflightname=0x7f080016;
+        public static final int txt_time_period=0x7f080026;
+        public static final int txtflightname=0x7f080015;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -324,9 +327,18 @@ containing a value of this type.
     public static final class string {
         public static final int action_settings=0x7f090000;
         public static final int app_name=0x7f090001;
-        public static final int hello_world=0x7f090002;
-        public static final int title_activity_flight_list=0x7f090003;
-        public static final int title_activity_flight_status_change=0x7f090004;
+        public static final int dialog_Destination=0x7f090002;
+        public static final int dialog_carriername=0x7f090003;
+        public static final int dialog_flightname=0x7f090004;
+        public static final int dialog_status=0x7f090005;
+        public static final int dialog_time=0x7f090006;
+        public static final int hello_world=0x7f090007;
+        public static final int status_Excessive=0x7f090008;
+        public static final int status_Late=0x7f090009;
+        public static final int status_VeryLate=0x7f09000a;
+        public static final int status_ontime=0x7f09000b;
+        public static final int title_activity_flight_list=0x7f09000c;
+        public static final int title_activity_flight_status_change=0x7f09000d;
     }
     public static final class style {
         public static final int ActionBar_Solid_Apptheme=0x7f0a0000;

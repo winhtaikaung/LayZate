@@ -100,11 +100,13 @@ public class Flight_status_change extends Activity {
                 Airport a=mAirportList.get(mAirport.getSelectedItemPosition());
 
                 int entrytype=(rdostatus.getId()==R.id.rdo_deperture)?0:1;
-                Toast.makeText(getApplication(),rdostatus.getText().toString()+""+t.getValue()+""+a.getPort_code()+""+entrytype+"",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(),rdostatus.getText().toString()+""+t.getValue()+""+a.getPort_name()+""+entrytype+"",Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                 intent.putExtra("airportQueryTimePeriod",""+t.getValue()+"");
                 intent.putExtra("airportQueryType",""+entrytype+"");
                 intent.putExtra("Airport",""+a.getPort_code()+"");
+                intent.putExtra("txt_querytype",rdostatus.getText().toString());
+                intent.putExtra("txt_portname",a.getPort_name().toString());
                 startActivity(intent);
             }
         });

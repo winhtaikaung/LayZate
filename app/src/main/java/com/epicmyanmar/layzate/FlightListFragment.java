@@ -62,9 +62,10 @@ public class FlightListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        getActivity().getActionBar().setTitle("Departure List on Yangon Airport");
-
         final Bundle bundle = this.getArguments();
+        getActivity().getActionBar().setTitle(bundle.getString("query_type").toString()+" List on "+bundle.getString("port_name"));
+
+
         setHasOptionsMenu(true);
         // getActivity().getActionBar().setTitle("Current Departure");
 
@@ -76,7 +77,7 @@ public class FlightListFragment extends Fragment {
 
 
 
-        // changing action bar color
+        // changing action bar coloro
 
             /*
             * Volley Http Request with list Adapter Binding
@@ -89,7 +90,8 @@ public class FlightListFragment extends Fragment {
 
             pDialog = new ProgressDialog(getActivity());
             // Showing progress dialog before making http request
-            pDialog.setMessage("Loading...");
+            pDialog.setTitle("Please Wait");
+            pDialog.setMessage("Loading Data...");
             pDialog.show();
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         StringRequest strReq = new StringRequest(Request.Method.POST, (bundle.getString("Airport").isEmpty()) ?
@@ -159,49 +161,37 @@ public class FlightListFragment extends Fragment {
         @InjectView(R.id.tv_status) TextView tv_status;
         @InjectView(R.id.tvCarriername) TextView tvCarriername;
         @InjectView(R.id.tvOrigin_Destination) TextView tvOrigin_Destination;
+        @InjectView(R.id.tv_Arrival_Departure_time) TextView tv_Arrival_Departure_time;
         @InjectView(R.id.tvFlightname) TextView tvFlightname;
 
-        @InjectView(R.id.btn_ok) Button btn_ok;
+       // @InjectView(R.id.btn_ok) Button btn_ok;
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-           if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT){
+
+               Flight mflight = new Flight();
+               mflight = mFlightListItem.get(i);
                View customview=LayoutInflater.from(getActivity()).inflate(R.layout.dialog_flight_detail,null);
                final MaterialDialog materialDialog=new MaterialDialog(getActivity())
                        .setContentView(customview)
-                       .setTitle("Flight Detail");
-               ButterKnife.inject(this,customview);
-               btn_ok.setOnClickListener(new View.OnClickListener() {
+
+                       .setTitle("Flight Info");
+               materialDialog.setPositiveButton("Got it",new View.OnClickListener() {
                    @Override
                    public void onClick(View v) {
                        materialDialog.dismiss();
                    }
                });
+               ButterKnife.inject(this,customview);
+                tvFlightname.setText(mflight.getFlightname().toString());
+                tvCarriername.setText(mflight.getCarrier().toString());
+                tvOrigin_Destination.setText(mflight.getOrigin_destination());
+                tv_Arrival_Departure_time.setText(mflight.getArrival_departure_time());
+                tv_status.setText(mflight.getStatus());
+
                materialDialog.show();
 
 
-           }else {
-
-
-               Flight mflight = new Flight();
-               mflight = mFlightListItem.get(i);
-               final Dialog dialog = new Dialog(getActivity());
-               dialog.setContentView(R.layout.dialog_flight_detail);
-               dialog.setTitle("Title...");
-               ButterKnife.inject(this, dialog);
-
-               btn_ok.setOnClickListener(new View.OnClickListener() {
-                   @Override
-                   public void onClick(View v) {
-                       Toast.makeText(getActivity(), " OK ", Toast.LENGTH_SHORT).show();
-                       dialog.dismiss();
-
-                   }
-               });
-
-               dialog.show();
-               tv_status.setText("Hello");
-           }
         }
     }
 

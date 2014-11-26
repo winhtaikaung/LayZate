@@ -68,6 +68,9 @@ public class MainActivity extends Activity {
         String airportQueryType=intent.getStringExtra("airportQueryType");
         String Airport=intent.getStringExtra("Airport");
 
+        String port_name=intent.getStringExtra("txt_portname");
+        String query_type=intent.getStringExtra("txt_querytype");
+
         setContentView(R.layout.activity_main);
        txt_status=(TextView) findViewById(R.id.txt_status);
 
@@ -81,6 +84,9 @@ public class MainActivity extends Activity {
             bundle.putString("airportQueryTimePeriod",airportQueryTimePeriod);
             bundle.putString("airportQueryType",airportQueryType);
             bundle.putString("Airport",Airport);
+            bundle.putString("port_name",port_name);
+            bundle.putString("query_type",query_type);
+
             flightListFragment=new FlightListFragment();
             flightListFragment.setArguments(bundle);
 

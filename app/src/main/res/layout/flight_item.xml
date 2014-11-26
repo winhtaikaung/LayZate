@@ -21,7 +21,9 @@
            android:layout_height="100dp"
 
            android:textColor="#000"
-           android:textSize="20dp"
+           android:textSize="30dp"
+           android:textStyle="bold"
+           android:textAppearance="@android:style/TextAppearance.Large"
            android:layout_weight="1"
            android:gravity="center"
            android:text="Flight Name"
@@ -31,6 +33,9 @@
            android:layout_width="fill_parent"
            android:layout_height="wrap_content"
            android:layout_weight="1"
+           android:textSize="20dp"
+           android:textStyle="bold"
+           android:textAppearance="@android:style/TextAppearance.Large"
            android:gravity="center"
            android:text="New Text"
            />
@@ -39,6 +44,10 @@
            android:layout_width="fill_parent"
            android:layout_height="wrap_content"
            android:layout_weight="1"
+           android:textSize="20dp"
+           android:textStyle="bold"
+
+           android:textAppearance="@android:style/TextAppearance.Large"
            android:gravity="center"
            android:text="New Text"
            />

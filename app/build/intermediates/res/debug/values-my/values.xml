@@ -26,7 +26,16 @@
     </string-array>
     <string name="action_settings">ြပင်ဆင်ရန်</string>
     <string name="app_name">လေဆိပ်</string>
+    <string name="dialog_Destination">နေရာ</string>
+    <string name="dialog_carriername">လေ ကျောင်းလိုင်းအမည်</string>
+    <string name="dialog_flightname">လေယဉ်အမည်</string>
+    <string name="dialog_status">အခြေအနေ</string>
+    <string name="dialog_time">အချိန်</string>
     <string name="hello_world">Hello world!</string>
+    <string name="status_Excessive">နောက်အကျဆံုး</string>
+    <string name="status_Late">နောက်ကျ</string>
+    <string name="status_VeryLate">ပိုနောက်ကျ</string>
+    <string name="status_ontime">အချိန်မှီ</string>
     <string name="title_activity_flight_list">ေလယဉ် စာရင်း</string>
     <string name="title_activity_flight_status_change">လေဆိပ်</string>
 </resources>

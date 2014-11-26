@@ -32,4 +32,20 @@
         <item>9:00 PM - 12:00 AM</item>
     </string-array>
 
+    <string name="status_change_rdo_departure">Departure</string>
+    <string name="status_change_rdo_arrival">Arrival</string>
+
+    <string name="dialog_flightname">Flight Name</string>
+    <string name="dialog_carriername">Carrier Name</string>
+    <string name="dialog_Destination">Destination</string>
+    <string name="dialog_time">Time</string>
+    <string name="dialog_status">Status</string>
+
+    <string name="status_ontime">On Time</string>
+    <string name="status_Late">Late</string>
+    <string name="status_VeryLate">Very Late</string>
+    <string name="status_Excessive">Excessive</string>
+
+
+
 </resources>

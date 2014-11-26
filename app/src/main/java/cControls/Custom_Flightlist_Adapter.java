@@ -17,6 +17,8 @@ package cControls;
  */
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,7 +69,22 @@ public class Custom_Flightlist_Adapter extends ArrayAdapter {
             view.setTag(holder);
 
         }
+        if(mFlights.get(position).getStatus().contains("On-time")){
+            holder.arriv_depart_time.setBackgroundColor(view.getResources().getColor(R.color.green));
 
+        }
+        if(mFlights.get(position).getStatus().contains("Late")){
+            holder.arriv_depart_time.setBackgroundColor(view.getResources().getColor(R.color.yellow));
+
+        }
+        if(mFlights.get(position).getStatus().contains("Very late")){
+            holder.arriv_depart_time.setBackgroundColor(view.getResources().getColor(R.color.orange));
+
+        }
+        if(mFlights.get(position).getStatus().contains("Excessive")){
+            holder.arriv_depart_time.setBackgroundColor(view.getResources().getColor(R.color.red));
+
+        }
         holder.flightname.setText(mFlights.get(position).getFlightname().replace("^",""));
         holder.arriv_depart_time.setText(mFlights.get(position).getArrival_departure_time());
         holder.origin_destination.setText(mFlights.get(position).getOrigin_destination());

@@ -32,4 +32,18 @@
         <item>9:00 PM - 12:00 AM</item>
     </string-array>
 
+    <string name="status_change_rdo_departure">ထွက်ခွါ</string>
+    <string name="status_change_rdo_arrival">ဆိုက်ရောက်</string>
+
+    <string name="dialog_flightname">လေယဉ်အမည်</string>
+    <string name="dialog_carriername">လေ ကျောင်းလိုင်းအမည်</string>
+    <string name="dialog_Destination">နေရာ</string>
+    <string name="dialog_time">အချိန်</string>
+    <string name="dialog_status">အခြေအနေ</string>
+
+    <string name="status_ontime">အချိန်မှီ</string>
+    <string name="status_Late">နောက်ကျ</string>
+    <string name="status_VeryLate">ပိုနောက်ကျ</string>
+    <string name="status_Excessive">နောက်အကျဆံုး</string>
+
 </resources>

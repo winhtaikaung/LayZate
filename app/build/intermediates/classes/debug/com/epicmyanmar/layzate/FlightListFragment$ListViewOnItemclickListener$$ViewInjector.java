@@ -13,17 +13,17 @@ public class FlightListFragment$ListViewOnItemclickListener$$ViewInjector {
     target.tvCarriername = (android.widget.TextView) view;
     view = finder.findRequiredView(source, 2131230728, "field 'tvOrigin_Destination'");
     target.tvOrigin_Destination = (android.widget.TextView) view;
+    view = finder.findRequiredView(source, 2131230729, "field 'tv_Arrival_Departure_time'");
+    target.tv_Arrival_Departure_time = (android.widget.TextView) view;
     view = finder.findRequiredView(source, 2131230726, "field 'tvFlightname'");
     target.tvFlightname = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131230731, "field 'btn_ok'");
-    target.btn_ok = (android.widget.Button) view;
   }
 
   public static void reset(com.epicmyanmar.layzate.FlightListFragment.ListViewOnItemclickListener target) {
     target.tv_status = null;
     target.tvCarriername = null;
     target.tvOrigin_Destination = null;
+    target.tv_Arrival_Departure_time = null;
     target.tvFlightname = null;
-    target.btn_ok = null;
   }
 }
