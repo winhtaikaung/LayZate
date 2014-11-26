@@ -19,8 +19,8 @@
         android:text="Flight Time"
         android:textStyle="bold"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
-        android:gravity="center"
-        android:layout_weight="3"
+
+        android:layout_weight="1"
         />
     <Spinner
         android:layout_weight="1"
@@ -40,8 +40,8 @@
             android:text="Airport Name"
             android:textStyle="bold"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
-            android:gravity="center"
-            android:layout_weight="3"
+
+            android:layout_weight="1"
             />
         <Spinner
             android:layout_weight="1"
@@ -62,14 +62,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Departure"
+            android:text="@string/status_change_rdo_departure"
             android:checked="true"
             android:id="@+id/rdo_deperture" />
 
         <RadioButton
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Arrival"
+            android:text="@string/status_change_rdo_arrival"
             android:id="@+id/rdo_arrival"
             android:layout_weight="1" />
     </RadioGroup>
@@ -77,7 +77,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:orientation="vertical"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:layout_height="wrap_content">
 
         <com.getbase.floatingactionbutton.FloatingActionButton

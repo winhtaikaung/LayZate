@@ -70,7 +70,7 @@ public class Dal {
                 for(int i=0;i<flightList.size();i++)
                 {
                     Flight oFlight=new Flight();
-                    oFlight.setFlightname(flightList.get(i).select("td").get(0).text());
+                    oFlight.setFlightname(flightList.get(i).select("td").get(0).text().replace("^","").toString());
                     oFlight.setCarrier(flightList.get(i).select("td").get(1).text());
                     oFlight.setOrigin_destination(flightList.get(i).select("td").get(2).text());
                     oFlight.setArrival_departure_time(flightList.get(i).select("td").get(3).text());

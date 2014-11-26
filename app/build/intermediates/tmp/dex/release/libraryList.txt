@@ -1,0 +1,11 @@
+/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/release/classes-5aaa0cdbc391182f5cec9c4d1fa09eb37a219190.jar
+/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/release/classes-b458bc24dd63618b6296d36518a89d2c229e17b4.jar
+/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/release/butterknife-5.1.2-509d54c6ee646216ac793e34abcec0b3826b3b84.jar
+/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/release/jsoup-1.7.2-f05423aa68711cb05b07bef4b2082475c3a571aa.jar
+/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/release/classes-3d092ce9bb787b20f1e69cb02cc5269e9dacc05d.jar
+/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/release/support-annotations-21.0.0-6619405218158e41c1bc8a9894e45efa05c4d332.jar
+/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/release/classes-678e8151c3f4fefd5f25e9011d9ff5966294e33f.jar
+/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/release/internal_impl-21.0.0-14bb0b8cc207c836a5f9b6e229b171525b49ffe4.jar
+/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/release/classes-50badf9e506275c68b13c0cb34cb8ffa1f00910e.jar
+/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/release/classes-b75414aa656f87bbeba3ff86c7cc41b270db6f47.jar
+/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/classes/release

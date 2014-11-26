@@ -16,13 +16,6 @@
         <dex dex="/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/debug/classes-3d092ce9bb787b20f1e69cb02cc5269e9dacc05d.jar" />
     </item>
     <item
-        jar="/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.1.0/classes.jar"
-        jumboMode="false"
-        revision="21.1.1"
-        sha1="6530bce64dfbde38a6beceaf1cca8a0257516f51">
-        <dex dex="/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/debug/classes-b458bc24dd63618b6296d36518a89d2c229e17b4.jar" />
-    </item>
-    <item
         jar="/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/classes.jar"
         jumboMode="false"
         revision="21.1.1"
@@ -49,6 +42,13 @@
         revision="21.1.1"
         sha1="efeda77c808750cb670ee9c48d8a1835d89dbcb2">
         <dex dex="/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/debug/classes-5aaa0cdbc391182f5cec9c4d1fa09eb37a219190.jar" />
+    </item>
+    <item
+        jar="/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/exploded-aar/com.getbase/floatingactionbutton/1.1.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="6530bce64dfbde38a6beceaf1cca8a0257516f51">
+        <dex dex="/home/jr/AndroidStudioProjects/LayZate/app/build/intermediates/pre-dexed/debug/classes-b458bc24dd63618b6296d36518a89d2c229e17b4.jar" />
     </item>
     <item
         jar="/home/jr/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"

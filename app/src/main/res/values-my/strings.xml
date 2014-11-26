@@ -35,6 +35,9 @@
     <string name="status_change_rdo_departure">ထွက်ခွါ</string>
     <string name="status_change_rdo_arrival">ဆိုက်ရောက်</string>
 
+    <string name="dialog_filght_info">အသေးစိပ်အချက်အလက်</string>
+    <string name="dialog_btn_gotit">ရပြီ</string>
+
     <string name="dialog_flightname">လေယဉ်အမည်</string>
     <string name="dialog_carriername">လေ ကျောင်းလိုင်းအမည်</string>
     <string name="dialog_Destination">နေရာ</string>

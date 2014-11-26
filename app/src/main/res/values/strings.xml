@@ -35,6 +35,10 @@
     <string name="status_change_rdo_departure">Departure</string>
     <string name="status_change_rdo_arrival">Arrival</string>
 
+
+
+    <string name="dialog_filght_info">Flight info</string>
+    <string name="dialog_btn_gotit">Got it</string>
     <string name="dialog_flightname">Flight Name</string>
     <string name="dialog_carriername">Carrier Name</string>
     <string name="dialog_Destination">Destination</string>

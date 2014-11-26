@@ -175,8 +175,8 @@ public class FlightListFragment extends Fragment {
                final MaterialDialog materialDialog=new MaterialDialog(getActivity())
                        .setContentView(customview)
 
-                       .setTitle("Flight Info");
-               materialDialog.setPositiveButton("Got it",new View.OnClickListener() {
+                       .setTitle(getResources().getString(R.string.dialog_filght_info));
+               materialDialog.setPositiveButton(getResources().getString(R.string.dialog_btn_gotit),new View.OnClickListener() {
                    @Override
                    public void onClick(View v) {
                        materialDialog.dismiss();
