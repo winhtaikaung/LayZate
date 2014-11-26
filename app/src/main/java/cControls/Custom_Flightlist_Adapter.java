@@ -69,6 +69,16 @@ public class Custom_Flightlist_Adapter extends ArrayAdapter {
             view.setTag(holder);
 
         }
+
+        if(mFlights.get(position).getArrival_departure_time().contains("AM")){
+
+            holder.arriv_depart_time.setText(mFlights.get(position).getArrival_departure_time().replace("AM",context.getResources().getString(R.string.am)));
+        }
+        if(mFlights.get(position).getArrival_departure_time().contains("PM")){
+
+            holder.arriv_depart_time.setText(mFlights.get(position).getArrival_departure_time().replace("PM",context.getResources().getString(R.string.pm)));
+        }
+
         if(mFlights.get(position).getStatus().contains("On-time")){
             holder.arriv_depart_time.setBackgroundColor(view.getResources().getColor(R.color.green));
 
@@ -86,7 +96,7 @@ public class Custom_Flightlist_Adapter extends ArrayAdapter {
 
         }
         holder.flightname.setText(mFlights.get(position).getFlightname().replace("^",""));
-        holder.arriv_depart_time.setText(mFlights.get(position).getArrival_departure_time());
+        //holder.arriv_depart_time.setText(mFlights.get(position).getArrival_departure_time());
         holder.origin_destination.setText(mFlights.get(position).getOrigin_destination());
 
         return view;

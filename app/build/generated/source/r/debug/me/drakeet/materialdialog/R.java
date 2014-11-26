@@ -36,7 +36,7 @@ public final class R {
 	}
 	public static final class string {
 		public static final int action_settings = 0x7f090000;
-		public static final int app_name = 0x7f090001;
-		public static final int hello_world = 0x7f090009;
+		public static final int app_name = 0x7f090002;
+		public static final int hello_world = 0x7f09000a;
 	}
 }

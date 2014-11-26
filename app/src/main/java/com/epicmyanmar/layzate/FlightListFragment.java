@@ -35,6 +35,7 @@ import com.android.volley.toolbox.Volley;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import butterknife.ButterKnife;
@@ -62,9 +63,15 @@ public class FlightListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final Bundle bundle = this.getArguments();
-        getActivity().getActionBar().setTitle(bundle.getString("query_type").toString()+" List on "+bundle.getString("port_name"));
 
+
+        final Bundle bundle = this.getArguments();
+        String ss= Locale.getDefault().toString();
+        if(Locale.getDefault().toString().equals("my_MM")){
+            getActivity().getActionBar().setTitle(bundle.getString("port_name")+" မှ "+bundle.getString("query_type").toString() + " မည့်စာရင်း" );
+        }else {
+            getActivity().getActionBar().setTitle(bundle.getString("query_type").toString() + " List on " + bundle.getString("port_name"));
+        }
 
         setHasOptionsMenu(true);
         // getActivity().getActionBar().setTitle("Current Departure");
@@ -90,8 +97,8 @@ public class FlightListFragment extends Fragment {
 
             pDialog = new ProgressDialog(getActivity());
             // Showing progress dialog before making http request
-            pDialog.setTitle("Please Wait");
-            pDialog.setMessage("Loading Data...");
+            pDialog.setTitle(getResources().getString(R.string.progress_title));
+            pDialog.setMessage(getResources().getString(R.string.progress_message));
             pDialog.show();
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         StringRequest strReq = new StringRequest(Request.Method.POST, (bundle.getString("Airport").isEmpty()) ?
@@ -109,7 +116,7 @@ public class FlightListFragment extends Fragment {
                     custom_flightlist_adapter = new Custom_Flightlist_Adapter(getActivity(), mFlightListItem);
                     listView.setAdapter(custom_flightlist_adapter);
                     custom_flightlist_adapter.notifyDataSetChanged();
-                    MainActivity.txt_status.setText("No Flight Information \n \nPlease Try again Later");
+                    MainActivity.txt_status.setText(getResources().getString(R.string.no_flightdata));
                 } else {
                     custom_flightlist_adapter = new Custom_Flightlist_Adapter(getActivity(), mFlightListItem);
                     listView.setAdapter(custom_flightlist_adapter);
@@ -148,7 +155,7 @@ public class FlightListFragment extends Fragment {
             * */
         listView.setOnItemClickListener(new ListViewOnItemclickListener());
     }else{
-            MainActivity.txt_status.setText("No Internet Connection");
+            MainActivity.txt_status.setText(getResources().getString(R.string.no_connection));
     }
 
 

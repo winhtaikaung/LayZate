@@ -9,15 +9,15 @@
     <string name="title_activity_flight_status_change">လေဆိပ်</string>
 
     <string-array name="query_time_period">
-        <item>ေကျးဇူးြပ ု၍ အချိန်ကိုေရွးေပးပါ</item>
+        <item>ကျေးဇူးပြု၍အချိန် ရွေးပေးပါ</item>
         <item>၁၂:၀၀ နံနက် - ၃:၀၀ နံနက်</item>
-        <item>3:00 AM - 6:00 AM</item>
-        <item>6:00 AM - 9:00 AM</item>
-        <item>9:00 AM - 12:00 PM</item>
-        <item>12:00 PM - 3:00 PM</item>
-        <item>3:00 PM - 6:00 PM</item>
-        <item>6:00 PM - 9:00 PM</item>
-        <item>9:00 PM - 12:00 AM</item>
+        <item>၃:၀၀ နံနက် - ၆:၀၀ နံနက်</item>
+        <item>၆:၀၀ နံနက် - ၉:၀၀ နံနက်</item>
+        <item>၉:၀၀ နံနက် - ၁၂:၀၀ ညနေ</item>
+        <item>၁၂:၀၀ ညနေ - ၃:၀၀ ညနေ</item>
+        <item>၃:၀၀ ညနေ - ၆:၀၀ ညနေ</item>
+        <item>၆:၀၀ ညနေ - ၉:၀၀ ညနေ</item>
+        <item>၉:၀၀ ညနေ - ၁၂:၀၀ နံနက်</item>
     </string-array>
 
     <string-array name="airport_names">
@@ -32,7 +32,17 @@
         <item>9:00 PM - 12:00 AM</item>
     </string-array>
 
-    <string name="status_change_rdo_departure">ထွက်ခွါ</string>
+    <string name="am">နံနက်</string>
+    <string name="pm">ညနေ</string>
+
+    <string name="progress_title">ခဏစောင့်ပါ</string>
+    <string name="progress_message">အချက်အလက်များရယူနေပါသည်....</string>
+    <string name="no_connection">အင်တာနက်ကွန်နက်ရှင်မရှိပါ</string>
+    <string name="no_flightdata">လောလောဆယ်တွင် \n လေယာဥ်ခရီးစဥ်  မရှိပါ</string>
+
+    <string name="status_change_flight_time">လေယာဥ်အချိန်</string>
+    <string name="status_change_airport_name">လေဆိပ်အမည်</string>
+    <string name="status_change_rdo_departure">ထွက်ခွာ</string>
     <string name="status_change_rdo_arrival">ဆိုက်ရောက်</string>
 
     <string name="dialog_filght_info">အသေးစိပ်အချက်အလက်</string>

@@ -32,6 +32,18 @@
         <item>9:00 PM - 12:00 AM</item>
     </string-array>
 
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
+
+    <string name="progress_title">Please Wait</string>
+    <string name="progress_message">Fetching data....</string>
+    <string name="no_connection">No Internet Connection</string>
+    <string name="no_flightdata">No Flight Information</string>
+
+    <string name="status_change_flight_time">Flight Time</string>
+    <string name="status_change_airport_name">Airport Name</string>
+
+
     <string name="status_change_rdo_departure">Departure</string>
     <string name="status_change_rdo_arrival">Arrival</string>
 

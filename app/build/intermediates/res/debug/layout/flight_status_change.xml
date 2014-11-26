@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Flight Time"
+        android:text="@string/status_change_flight_time"
         android:textStyle="bold"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
 
@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Airport Name"
+            android:text="@string/status_change_airport_name"
             android:textStyle="bold"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
 
