@@ -24,6 +24,35 @@
         <item>၆:၀၀ ညနေ - ၉:၀၀ ညနေ</item>
         <item>၉:၀၀ ညနေ - ၁၂:၀၀ နံနက်</item>
     </string-array>
+    <string name="about_dialogtext">Lay Zate \n
+        V 1.0 \n\n
+        <b>Developer :</b>\t Win Htaik Aung \n\n
+
+        <i><b>Credits</b></i>\n
+        For the development and inspiration\n
+        I took some references from android bootCamp App\n
+        and also fork some Experts git repo Bro Thura Hlaing \n
+        and Bro Ye Lin Aung repo to Localization and design inspiration\n\n
+
+        :-)\n\n
+
+        <b>OpenSource Libraries</b>\n\n
+
+        <i><b>Butter Knife</b></i>\n https://github.com/JakeWharton/butterknife \n\n
+        <i><b>Volley</b></i>\n https://android.googlesource.com/platform/frameworks/volley/ \n\n
+        <i><b>Jsoup</b></i>\nhttp://jsoup.org/packages/jsoup-1.8.1.jar \n\n
+        <i><b>Floating Action Button</b></i>\nhttps://github.com/futuresimple/android-floating-action-button\n\n
+        <i><b>Material Dialog for Lower API</b></i>\nhttps://github.com/drakeet/MaterialDialog
+
+
+
+
+
+
+
+
+    </string>
+    <string name="action_about">About</string>
     <string name="action_settings">ြပင်ဆင်ရန်</string>
     <string name="am">နံနက်</string>
     <string name="app_name">လေဆိပ်</string>

@@ -1,7 +1,9 @@
 package com.epicmyanmar.layzate;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -119,7 +121,7 @@ public class Flight_status_change extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_flight_status_change, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -131,10 +133,22 @@ public class Flight_status_change extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_about) {
+            AlertDialog.Builder dialog=new AlertDialog.Builder(Flight_status_change.this);
+            dialog.setTitle("About");
+            dialog.setMessage(getResources().getString(R.string.about_dialogtext));
+            dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            dialog.show();
         }
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 }

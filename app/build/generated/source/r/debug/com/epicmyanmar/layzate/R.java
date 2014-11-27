@@ -264,7 +264,8 @@ containing a value of this type.
         public static final int tab_unselected_pressed_apptheme=0x7f020028;
     }
     public static final class id {
-        public static final int action_settings=0x7f080027;
+        public static final int action_about=0x7f080027;
+        public static final int action_settings=0x7f080028;
         public static final int btn_query=0x7f08001d;
         public static final int buttonLayout=0x7f080024;
         public static final int container=0x7f080003;
@@ -325,32 +326,34 @@ containing a value of this type.
         public static final int airplane=0x7f040000;
     }
     public static final class string {
-        public static final int action_settings=0x7f090000;
-        public static final int am=0x7f090001;
-        public static final int app_name=0x7f090002;
-        public static final int dialog_Destination=0x7f090003;
-        public static final int dialog_btn_gotit=0x7f090004;
-        public static final int dialog_carriername=0x7f090005;
-        public static final int dialog_filght_info=0x7f090006;
-        public static final int dialog_flightname=0x7f090007;
-        public static final int dialog_status=0x7f090008;
-        public static final int dialog_time=0x7f090009;
-        public static final int hello_world=0x7f09000a;
-        public static final int no_connection=0x7f09000b;
-        public static final int no_flightdata=0x7f09000c;
-        public static final int pm=0x7f09000d;
-        public static final int progress_message=0x7f09000e;
-        public static final int progress_title=0x7f09000f;
-        public static final int status_Excessive=0x7f090010;
-        public static final int status_Late=0x7f090011;
-        public static final int status_VeryLate=0x7f090012;
-        public static final int status_change_airport_name=0x7f090013;
-        public static final int status_change_flight_time=0x7f090014;
-        public static final int status_change_rdo_arrival=0x7f090015;
-        public static final int status_change_rdo_departure=0x7f090016;
-        public static final int status_ontime=0x7f090017;
-        public static final int title_activity_flight_list=0x7f090018;
-        public static final int title_activity_flight_status_change=0x7f090019;
+        public static final int about_dialogtext=0x7f090000;
+        public static final int action_about=0x7f090001;
+        public static final int action_settings=0x7f090002;
+        public static final int am=0x7f090003;
+        public static final int app_name=0x7f090004;
+        public static final int dialog_Destination=0x7f090005;
+        public static final int dialog_btn_gotit=0x7f090006;
+        public static final int dialog_carriername=0x7f090007;
+        public static final int dialog_filght_info=0x7f090008;
+        public static final int dialog_flightname=0x7f090009;
+        public static final int dialog_status=0x7f09000a;
+        public static final int dialog_time=0x7f09000b;
+        public static final int hello_world=0x7f09000c;
+        public static final int no_connection=0x7f09000d;
+        public static final int no_flightdata=0x7f09000e;
+        public static final int pm=0x7f09000f;
+        public static final int progress_message=0x7f090010;
+        public static final int progress_title=0x7f090011;
+        public static final int status_Excessive=0x7f090012;
+        public static final int status_Late=0x7f090013;
+        public static final int status_VeryLate=0x7f090014;
+        public static final int status_change_airport_name=0x7f090015;
+        public static final int status_change_flight_time=0x7f090016;
+        public static final int status_change_rdo_arrival=0x7f090017;
+        public static final int status_change_rdo_departure=0x7f090018;
+        public static final int status_ontime=0x7f090019;
+        public static final int title_activity_flight_list=0x7f09001a;
+        public static final int title_activity_flight_status_change=0x7f09001b;
     }
     public static final class style {
         public static final int ActionBar_Solid_Apptheme=0x7f0a0000;
