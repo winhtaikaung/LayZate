@@ -17,6 +17,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 
+import io.reactivex.Observable;
+
 import static org.mockito.Mockito.when;
 
 /**
@@ -46,15 +48,16 @@ public class GetFlightTest {
         Flight dummyFlight = new Flight("aa", "date", "departure", "http://www.flightstatus.com",
                 new Departure("Yangon", "MM", "MidNight"), new Arrival("Yangon", "MM", "MidNight"));
 
+        Observable<Flight> dummyObservableFlight = Observable.just(dummyFlight);
         when(mFlightRepository.getFlight())
-                .thenReturn(dummyFlight);
+                .thenReturn(dummyObservableFlight);
 
         GetFlightInteractorImpl interactor = new GetFlightInteractorImpl(mExecutor, mMainThread, mFlightRepository, mMockedCallback);
         interactor.run();
 
         Mockito.verify(mFlightRepository).getFlight();
         Mockito.verifyNoMoreInteractions(mFlightRepository);
-        Mockito.verify(mMockedCallback).onFlightretrieved(dummyFlight);
+        Mockito.verify(mMockedCallback).onFlightretrieved(dummyObservableFlight);
 
     }
 }

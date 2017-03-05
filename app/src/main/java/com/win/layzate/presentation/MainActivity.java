@@ -1,7 +1,9 @@
-package com.win.layzate;
+package com.win.layzate.presentation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.win.layzate.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -7,6 +7,8 @@ import com.win.layzate.domain.interactors.base.AbstractInteractor;
 import com.win.layzate.domain.model.Flight;
 import com.win.layzate.domain.repository.FlightRepository;
 
+import io.reactivex.Observable;
+
 /**
  * Created by winhtaikaung on 4/3/17.
  */
@@ -26,7 +28,7 @@ public class GetFlightInteractorImpl extends AbstractInteractor implements GetFl
 
     @Override
     public void run() {
-        final Flight flight = mFlightRepository.getFlight();
+        final Observable<Flight> flight = mFlightRepository.getFlight();
 
         // Show costs on the main thread
         mMainThread.post(new Runnable() {

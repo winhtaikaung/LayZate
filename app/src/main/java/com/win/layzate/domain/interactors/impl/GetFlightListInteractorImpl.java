@@ -9,6 +9,8 @@ import com.win.layzate.domain.repository.FlightRepository;
 
 import java.util.List;
 
+import io.reactivex.Observable;
+
 /**
  * Created by winhtaikaung on 4/3/17.
  */
@@ -28,7 +30,7 @@ public class GetFlightListInteractorImpl extends AbstractInteractor implements G
 
     @Override
     public void run() {
-        final List<Flight> flights = mFlightRepository.getAllFlights();
+        final Observable<List<Flight>> flights = mFlightRepository.getAllFlights();
 
         // Show costs on the main thread
         mMainThread.post(new Runnable() {

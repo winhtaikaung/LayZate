@@ -19,6 +19,8 @@ import org.mockito.MockitoAnnotations;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observable;
+
 import static org.mockito.Mockito.when;
 
 /**
@@ -62,15 +64,17 @@ public class GetFlightListTest {
         dummyFlightlist.add(new Flight("aa", "date", "departure", "http://www.flightstatus.com",
                 new Departure("Yangon", "MM", "MidNight"), new Arrival("Yangon", "MM", "MidNight")));
 
+        Observable<List<Flight>> dummyObservablelist = Observable.just(dummyFlightlist);
+
         when(mFlightRepository.getAllFlights())
-                .thenReturn(dummyFlightlist);
+                .thenReturn(dummyObservablelist);
 
         GetFlightListInteractorImpl interactor = new GetFlightListInteractorImpl(mExecutor, mMainThread, mFlightRepository, mMockedCallback);
         interactor.run();
 
         Mockito.verify(mFlightRepository).getAllFlights();
         Mockito.verifyNoMoreInteractions(mFlightRepository);
-        Mockito.verify(mMockedCallback).onFlightlistretrieved(dummyFlightlist);
+        Mockito.verify(mMockedCallback).onFlightlistretrieved(dummyObservablelist);
 
     }
 }
