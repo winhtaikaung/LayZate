@@ -1,19 +1,24 @@
-package com.win.layzate.domain.model;
+package com.win.layzate.data.network.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by winhtaikaung on 4/3/17.
+ * Created by winhtaikaung on 15/3/17.
  */
 
 public class Arrival {
-
+    @SerializedName("airport")
+    @Expose
     private String airport;
+    @SerializedName("country")
+    @Expose
     private String country;
+    @SerializedName("time")
+    @Expose
     private String time;
 
-    public Arrival(String airport, String country, String time) {
+    public Arrival(String airport,String country,String time){
 
         this.airport = airport;
         this.country = country;
@@ -43,5 +48,4 @@ public class Arrival {
     public void setTime(String time) {
         this.time = time;
     }
-
 }

@@ -13,7 +13,7 @@ public class RestClient {
 
     private static Retrofit retrofit;
 
-    private final static String API_URL = "http://localhost";
+    private final static String API_URL = "http://192.168.0.17/api/";
 
     public static Retrofit getRetrofit(){
         if(retrofit != null){

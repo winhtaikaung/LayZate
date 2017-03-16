@@ -12,7 +12,7 @@ import io.reactivex.Observable;
 
 public interface FlightRepository {
 
-    Observable<Flight> getFlight();
+    Observable<Flight> getFlight(String type,String flightNumber,String flightDate);
 
     Observable<List<Flight>> getAllFlights();
 }

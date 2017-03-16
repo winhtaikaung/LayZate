@@ -16,19 +16,25 @@ import io.reactivex.Observable;
 public class GetFlightInteractorImpl extends AbstractInteractor implements GetFlightInteractor {
     private FlightRepository mFlightRepository;
     private Callback mCallback;
+    private String type;
+    private String flightNumber;
+    private String date;
 
     public GetFlightInteractorImpl(Executor threadExecutor, MainThread mainThread,
-                                   FlightRepository flightRepository,
+                                   FlightRepository flightRepository,String type,String flightNumber,String date,
                                    Callback callback) {
         super(threadExecutor, mainThread);
         mFlightRepository = flightRepository;
         mCallback = callback;
+        this.type = type;
+        this.flightNumber = flightNumber;
+        this.date = date;
 
     }
 
     @Override
     public void run() {
-        final Observable<Flight> flight = mFlightRepository.getFlight();
+        final Observable<Flight> flight = mFlightRepository.getFlight(type,flightNumber,date);
 
         // Show costs on the main thread
         mMainThread.post(new Runnable() {
