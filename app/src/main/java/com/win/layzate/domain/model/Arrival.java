@@ -13,7 +13,7 @@ public class Arrival {
     private String country;
     private String time;
 
-    public Arrival(String airport,String country,String time){
+    public Arrival(String airport, String country, String time) {
 
         this.airport = airport;
         this.country = country;

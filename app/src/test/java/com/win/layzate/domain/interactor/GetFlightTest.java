@@ -48,14 +48,18 @@ public class GetFlightTest {
         Flight dummyFlight = new Flight("aa", "date", "departure", "http://www.flightstatus.com",
                 new Departure("Yangon", "MM", "MidNight"), new Arrival("Yangon", "MM", "MidNight"));
 
+        String type = "single";
+        String flightNumber = "YH512";
+        String date = "2017-03-10";
+
         Observable<Flight> dummyObservableFlight = Observable.just(dummyFlight);
-        when(mFlightRepository.getFlight())
+        when(mFlightRepository.getFlight("single","YH512","2017-03-10"))
                 .thenReturn(dummyObservableFlight);
 
-        GetFlightInteractorImpl interactor = new GetFlightInteractorImpl(mExecutor, mMainThread, mFlightRepository, mMockedCallback);
+        GetFlightInteractorImpl interactor = new GetFlightInteractorImpl(mExecutor, mMainThread, mFlightRepository,type,flightNumber,date, mMockedCallback);
         interactor.run();
 
-        Mockito.verify(mFlightRepository).getFlight();
+        Mockito.verify(mFlightRepository).getFlight("single","YH512","2017-03-10");
         Mockito.verifyNoMoreInteractions(mFlightRepository);
         Mockito.verify(mMockedCallback).onFlightretrieved(dummyObservableFlight);
 
