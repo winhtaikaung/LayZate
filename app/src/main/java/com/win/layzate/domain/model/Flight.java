@@ -14,8 +14,7 @@ public class Flight {
     private String trackingUrl;
 
 
-
-    public Flight(String name,String date,String status,String trackingUrl,Departure departure,Arrival arrival){
+    public Flight(String name, String date, String status, String trackingUrl, Departure departure, Arrival arrival) {
         this.name = name;
         this.date = date;
         this.status = status;
@@ -74,6 +73,6 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight name "+this.name+"\t"+this.status;
+        return "Flight name " + this.name + "\t" + this.status;
     }
 }

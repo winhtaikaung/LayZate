@@ -7,10 +7,10 @@ import com.win.layzate.presentation.ui.BaseView;
  */
 
 public interface MainPresenter {
-    interface View extends BaseView{
+    interface View extends BaseView {
 
 
     }
 
-    void getFlightinfo(String type,String flightNumber,String date);
+    void getFlightinfo(String type, String flightNumber, String date);
 }

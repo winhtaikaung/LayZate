@@ -25,7 +25,6 @@ public class FlightCloudDataStore implements FlightDataStore {
     }
 
     /**
-     *
      * @param type
      * @param queryTime
      * @param isDeparture
@@ -36,7 +35,7 @@ public class FlightCloudDataStore implements FlightDataStore {
     public Observable<RESTFlightList> flights(String type, String queryTime, boolean isDeparture, String portcode) {
 
         return getRetrofit().create(FlightService.class)
-                .getAllFlightList(type,  queryTime,  isDeparture,  portcode)
+                .getAllFlightList(type, queryTime, isDeparture, portcode)
                 .subscribeOn(Schedulers.io())
                 .doOnNext(new Consumer<RESTFlightList>() {
                     @Override
@@ -47,7 +46,6 @@ public class FlightCloudDataStore implements FlightDataStore {
     }
 
     /**
-     *
      * @param type
      * @param flightNumber
      * @param flightDate

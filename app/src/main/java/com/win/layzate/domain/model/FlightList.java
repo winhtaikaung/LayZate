@@ -16,13 +16,11 @@ public class FlightList {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public FlightList() {
     }
 
     /**
-     *
      * @param flightItems
      */
     public FlightList(List<FlightItem> flightItems) {

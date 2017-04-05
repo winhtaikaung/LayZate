@@ -13,7 +13,6 @@ import retrofit2.http.Query;
 
 public interface FlightService {
     /**
-     *
      * @param type
      * @param queryTime
      * @param isDeparture
@@ -23,11 +22,10 @@ public interface FlightService {
     @GET("v1/flight")
     Observable<RESTFlightList> getAllFlightList(@Query("type") String type,
                                                 @Query("queryTime") String queryTime,
-                                                @Query("flightType")boolean isDeparture,
+                                                @Query("flightType") boolean isDeparture,
                                                 @Query("portcode") String portCode);
 
     /**
-     *
      * @param type
      * @param fnumber
      * @param flightDate

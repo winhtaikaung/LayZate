@@ -18,7 +18,7 @@ public class RESTArrival {
     @Expose
     private String time;
 
-    public RESTArrival(String airport, String country, String time){
+    public RESTArrival(String airport, String country, String time) {
 
         this.airport = airport;
         this.country = country;

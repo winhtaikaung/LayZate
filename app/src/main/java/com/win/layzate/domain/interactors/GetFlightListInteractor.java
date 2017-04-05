@@ -9,7 +9,7 @@ import io.reactivex.Observable;
  */
 
 public interface GetFlightListInteractor {
-    interface Callback{
+    interface Callback {
         void onFlightlistretrieved(Observable<FlightList> flightList);
     }
 }

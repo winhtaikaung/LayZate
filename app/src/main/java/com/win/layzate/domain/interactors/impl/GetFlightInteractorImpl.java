@@ -21,7 +21,7 @@ public class GetFlightInteractorImpl extends AbstractInteractor implements GetFl
     private String date;
 
     public GetFlightInteractorImpl(Executor threadExecutor, MainThread mainThread,
-                                   FlightRepository flightRepository,String type,String flightNumber,String date,
+                                   FlightRepository flightRepository, String type, String flightNumber, String date,
                                    Callback callback) {
         super(threadExecutor, mainThread);
         mFlightRepository = flightRepository;
@@ -34,7 +34,7 @@ public class GetFlightInteractorImpl extends AbstractInteractor implements GetFl
 
     @Override
     public void run() {
-        final Observable<Flight> flight = mFlightRepository.getFlight(type,flightNumber,date);
+        final Observable<Flight> flight = mFlightRepository.getFlight(type, flightNumber, date);
 
         // Show costs on the main thread
         mMainThread.post(new Runnable() {

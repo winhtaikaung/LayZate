@@ -3,6 +3,7 @@ package com.win.layzate.data.network.model;
 /**
  * Created by winhtaikaung on 4/4/17.
  */
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -35,13 +36,11 @@ public class RESTFlightItem {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public RESTFlightItem() {
     }
 
     /**
-     *
      * @param time
      * @param trackingUrl
      * @param remark

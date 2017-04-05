@@ -11,6 +11,6 @@ import io.reactivex.Observable;
 
 public interface GetFlightInteractor {
     interface Callback {
-        void onFlightretrieved( Observable<Flight> flight);
+        void onFlightretrieved(Observable<Flight> flight);
     }
 }

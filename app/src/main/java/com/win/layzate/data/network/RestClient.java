@@ -18,8 +18,8 @@ public class RestClient {
 
     private final static String API_URL = "http://192.168.1.184:3000/api/";
 
-    public static Retrofit getRetrofit(){
-        if(retrofit != null){
+    public static Retrofit getRetrofit() {
+        if (retrofit != null) {
             return retrofit;
         }
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();

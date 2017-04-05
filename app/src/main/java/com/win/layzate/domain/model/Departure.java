@@ -15,7 +15,7 @@ public class Departure {
     private String time;
 
 
-    public Departure(String airport,String country,String time){
+    public Departure(String airport, String country, String time) {
 
         this.airport = airport;
         this.country = country;

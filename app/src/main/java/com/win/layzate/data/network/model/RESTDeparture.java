@@ -19,7 +19,7 @@ public class RESTDeparture {
     @Expose
     private String time;
 
-    public RESTDeparture(String airport, String country, String time){
+    public RESTDeparture(String airport, String country, String time) {
 
         this.airport = airport;
         this.country = country;
