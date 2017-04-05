@@ -4,9 +4,8 @@ import com.win.layzate.domain.executor.Executor;
 import com.win.layzate.domain.executor.MainThread;
 import com.win.layzate.domain.interactors.GetFlightListInteractor;
 import com.win.layzate.domain.interactors.impl.GetFlightListInteractorImpl;
-import com.win.layzate.domain.model.Arrival;
-import com.win.layzate.domain.model.Departure;
-import com.win.layzate.domain.model.Flight;
+import com.win.layzate.domain.model.FlightItem;
+import com.win.layzate.domain.model.FlightList;
 import com.win.layzate.domain.repository.FlightRepository;
 import com.win.layzate.threading.TestMainThread;
 
@@ -45,10 +44,10 @@ public class GetFlightListTest {
 
     @Test
     public void testCostNotFound() throws Exception {
-        GetFlightListInteractorImpl interactor = new GetFlightListInteractorImpl(mExecutor, mMainThread, mFlightRepository, mMockedCallback);
+        GetFlightListInteractorImpl interactor = new GetFlightListInteractorImpl(mExecutor, mMainThread, mFlightRepository,"list","8",false,"RGN", mMockedCallback);
         interactor.run();
 
-        Mockito.verify(mFlightRepository).getAllFlights();
+        Mockito.verify(mFlightRepository).getAllFlights("list","8",false,"RGN");
         Mockito.verifyNoMoreInteractions(mFlightRepository);
 //        Mockito.verify(mMockedCallback).onFlightlistretrieved();
     }
@@ -56,23 +55,22 @@ public class GetFlightListTest {
     @Test
     public void testGetFlightList() throws Exception {
 
-        List<Flight> dummyFlightlist = new ArrayList<>();
-        dummyFlightlist.add(new Flight("aa", "date", "departure", "http://www.flightstatus.com",
-                new Departure("Yangon", "MM", "MidNight"), new Arrival("Yangon", "MM", "MidNight")));
-        dummyFlightlist.add(new Flight("aa", "date", "departure", "http://www.flightstatus.com",
-                new Departure("Yangon", "MM", "MidNight"), new Arrival("Yangon", "MM", "MidNight")));
-        dummyFlightlist.add(new Flight("aa", "date", "departure", "http://www.flightstatus.com",
-                new Departure("Yangon", "MM", "MidNight"), new Arrival("Yangon", "MM", "MidNight")));
+        List<FlightItem> dummyFlightlist = new ArrayList<>();
+        dummyFlightlist.add(new FlightItem("trackingUrl", "number", "carrier", "originCode","originName","time","status","remark"));
+        dummyFlightlist.add(new FlightItem("trackingUrl", "number", "carrier", "originCode","originName","time","status","remark"));
+        dummyFlightlist.add(new FlightItem("trackingUrl", "number", "carrier", "originCode","originName","time","status","remark"));
 
-        Observable<List<Flight>> dummyObservablelist = Observable.just(dummyFlightlist);
+        FlightList flightlistmodel = new FlightList(dummyFlightlist);
 
-        when(mFlightRepository.getAllFlights())
+        Observable<FlightList> dummyObservablelist = Observable.just(flightlistmodel);
+
+        when(mFlightRepository.getAllFlights("list","8",false,"RGN"))
                 .thenReturn(dummyObservablelist);
 
-        GetFlightListInteractorImpl interactor = new GetFlightListInteractorImpl(mExecutor, mMainThread, mFlightRepository, mMockedCallback);
+        GetFlightListInteractorImpl interactor = new GetFlightListInteractorImpl(mExecutor, mMainThread, mFlightRepository,"list","8",false,"RGN", mMockedCallback);
         interactor.run();
 
-        Mockito.verify(mFlightRepository).getAllFlights();
+        Mockito.verify(mFlightRepository).getAllFlights("list","8",false,"RGN");
         Mockito.verifyNoMoreInteractions(mFlightRepository);
         Mockito.verify(mMockedCallback).onFlightlistretrieved(dummyObservablelist);
 

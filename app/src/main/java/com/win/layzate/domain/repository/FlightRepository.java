@@ -1,8 +1,7 @@
 package com.win.layzate.domain.repository;
 
 import com.win.layzate.domain.model.Flight;
-
-import java.util.List;
+import com.win.layzate.domain.model.FlightList;
 
 import io.reactivex.Observable;
 
@@ -12,7 +11,9 @@ import io.reactivex.Observable;
 
 public interface FlightRepository {
 
-    Observable<Flight> getFlight(String type,String flightNumber,String flightDate);
+    Observable<Flight> getFlight(String type, String flightNumber, String flightDate);
 
-    Observable<List<Flight>> getAllFlights();
+    Observable<FlightList> getAllFlights(String type, String queryTime,
+                                         boolean isDeparture,
+                                         String portcode);
 }

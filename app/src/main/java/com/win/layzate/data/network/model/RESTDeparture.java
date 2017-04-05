@@ -7,7 +7,8 @@ import com.google.gson.annotations.SerializedName;
  * Created by winhtaikaung on 15/3/17.
  */
 
-public class Arrival {
+public class RESTDeparture {
+
     @SerializedName("airport")
     @Expose
     private String airport;
@@ -18,7 +19,7 @@ public class Arrival {
     @Expose
     private String time;
 
-    public Arrival(String airport,String country,String time){
+    public RESTDeparture(String airport, String country, String time){
 
         this.airport = airport;
         this.country = country;
@@ -48,4 +49,5 @@ public class Arrival {
     public void setTime(String time) {
         this.time = time;
     }
+
 }

@@ -16,7 +16,7 @@ public class RestClient {
 
     private static Retrofit retrofit;
 
-    private final static String API_URL = "http://192.168.1.39:3000/api/";
+    private final static String API_URL = "http://192.168.1.184:3000/api/";
 
     public static Retrofit getRetrofit(){
         if(retrofit != null){

@@ -1,8 +1,7 @@
 package com.win.layzate.data.repository.datasource;
 
 import com.win.layzate.data.network.model.RESTFlight;
-
-import java.util.List;
+import com.win.layzate.data.network.model.RESTFlightList;
 
 import io.reactivex.Observable;
 
@@ -11,8 +10,22 @@ import io.reactivex.Observable;
  */
 
 public interface FlightDataStore {
+    /**
+     *
+     * @param type
+     * @param queryTime
+     * @param isDeparture
+     * @param portcode
+     * @return
+     */
+    Observable<RESTFlightList> flights(String type, String queryTime, boolean isDeparture, String portcode);
 
-    Observable<List<RESTFlight>> flights();
-
+    /**
+     *
+     * @param type
+     * @param flightNumber
+     * @param flightDate
+     * @return
+     */
     Observable<RESTFlight> flight(String type,String flightNumber,String flightDate);
 }

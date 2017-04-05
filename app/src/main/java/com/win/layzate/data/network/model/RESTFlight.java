@@ -11,10 +11,10 @@ public class RESTFlight {
 
     @SerializedName("departure")
     @Expose
-    private Departure departure;
+    private RESTDeparture departure;
     @SerializedName("arrival")
     @Expose
-    private Arrival arrival;
+    private RESTArrival arrival;
     @SerializedName("name")
     @Expose
     private String name;
@@ -29,7 +29,7 @@ public class RESTFlight {
     private String trackingUrl;
 
 
-    public RESTFlight(Departure departure, Arrival arrival, String name, String status, String trackingUrl) {
+    public RESTFlight(RESTDeparture departure, RESTArrival arrival, String name, String status, String trackingUrl) {
         this.departure = departure;
         this.arrival = arrival;
         this.name = name;
@@ -37,19 +37,19 @@ public class RESTFlight {
         this.trackingUrl = trackingUrl;
     }
 
-    public Departure getDeparture() {
+    public RESTDeparture getDeparture() {
         return departure;
     }
 
-    public void setDeparture(Departure departure) {
+    public void setDeparture(RESTDeparture departure) {
         this.departure = departure;
     }
 
-    public Arrival getArrival() {
+    public RESTArrival getArrival() {
         return arrival;
     }
 
-    public void setArrival(Arrival arrival) {
+    public void setArrival(RESTArrival arrival) {
         this.arrival = arrival;
     }
 

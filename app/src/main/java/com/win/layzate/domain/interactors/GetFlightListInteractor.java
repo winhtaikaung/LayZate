@@ -1,8 +1,6 @@
 package com.win.layzate.domain.interactors;
 
-import com.win.layzate.domain.model.Flight;
-
-import java.util.List;
+import com.win.layzate.domain.model.FlightList;
 
 import io.reactivex.Observable;
 
@@ -12,6 +10,6 @@ import io.reactivex.Observable;
 
 public interface GetFlightListInteractor {
     interface Callback{
-        void onFlightlistretrieved(Observable<List<Flight>> flightList);
+        void onFlightlistretrieved(Observable<FlightList> flightList);
     }
 }

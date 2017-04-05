@@ -1,9 +1,13 @@
 package com.win.layzate.data.network.converter;
 
 import com.win.layzate.data.network.model.RESTFlight;
+import com.win.layzate.data.network.model.RESTFlightItem;
+import com.win.layzate.data.network.model.RESTFlightList;
 import com.win.layzate.domain.model.Arrival;
 import com.win.layzate.domain.model.Departure;
 import com.win.layzate.domain.model.Flight;
+import com.win.layzate.domain.model.FlightItem;
+import com.win.layzate.domain.model.FlightList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,18 +16,14 @@ import java.util.List;
  * Created by winhtaikaung on 15/3/17.
  */
 
-public class RESTModelConverter {
+public class RESTFlightConverter {
 
-//    public static RESTFlight convertToRestModel(Flight flight) {
-//
-//        Departure departure = new Departure(flight.getDeparture().getAirport(),flight.getDeparture().getCountry(),flight.getDeparture().getCountry());
-//        Arrival arrival = new Arrival(flight.getArrival().getAirport(),flight.getArrival().getCountry(),flight.getArrival().getCountry());
-//
-//        RESTFlight restFlight = new RESTFlight(departure,arrival,flight.getName(),flight.getStatus(),flight.getTrackingUrl());
-//        return restFlight;
-//
-//    }
 
+    /**
+     *
+     * @param restFlight
+     * @return
+     */
     public Flight convertToFlightModel(RESTFlight restFlight) {
 
         Departure departure = new Departure(restFlight.getDeparture().getAirport(),
@@ -44,6 +44,11 @@ public class RESTModelConverter {
 
     }
 
+    /**
+     *
+     * @param restFlightList
+     * @return
+     */
     public List<Flight>converttoFlightList(List<RESTFlight> restFlightList){
         List<Flight> flightArrayList = new ArrayList<>();
         for(RESTFlight restFlight:restFlightList){
@@ -52,5 +57,44 @@ public class RESTModelConverter {
             }
         }
         return flightArrayList;
+    }
+
+
+    /**
+     *
+     * @param restFlightList
+     * @return
+     */
+    public FlightList converttoFLightList(RESTFlightList restFlightList) {
+
+        FlightList flightList = new FlightList(getFlightList(restFlightList.getFlightItems()));
+        return flightList;
+    }
+
+    /**
+     *
+     * @param flightItems
+     * @return
+     */
+    public List<FlightItem> getFlightList(List<RESTFlightItem> flightItems) {
+        List<FlightItem> flightItemList = new ArrayList<>();
+        for (RESTFlightItem i : flightItems) {
+            flightItemList.add(getFLightItem(i));
+        }
+
+        return flightItemList;
+    }
+
+    /**
+     *
+     * @param i
+     * @return
+     */
+    public FlightItem getFLightItem(RESTFlightItem i) {
+        FlightItem flightItem = new FlightItem(i.getTrackingUrl(),
+                i.getNumber(), i.getCarrier(), i.getOriginCode(),
+                i.getOriginName(), i.getTime(),
+                i.getStatus(), i.getRemark());
+        return flightItem;
     }
 }
