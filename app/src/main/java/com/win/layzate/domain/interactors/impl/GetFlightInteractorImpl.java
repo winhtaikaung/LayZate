@@ -40,7 +40,7 @@ public class GetFlightInteractorImpl extends AbstractInteractor implements GetFl
         mMainThread.post(new Runnable() {
             @Override
             public void run() {
-                mCallback.onFlightretrieved(flight);
+                mCallback.onFlightRetrieved(flight);
             }
         });
     }

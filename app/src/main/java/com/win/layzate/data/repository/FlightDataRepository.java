@@ -49,15 +49,15 @@ public class FlightDataRepository implements FlightRepository {
      * @param type
      * @param queryTime
      * @param isDeparture
-     * @param portcode
+     * @param portCode
      * @return
      */
     @Override
-    public Observable<FlightList> getAllFlights(String type, String queryTime, boolean isDeparture, String portcode) {
-        return flightDataStoreFactory.create().flights(type, queryTime, isDeparture, portcode).map(new Function<RESTFlightList, FlightList>() {
+    public Observable<FlightList> getAllFlights(String type, String queryTime, boolean isDeparture, String portCode) {
+        return flightDataStoreFactory.create().flights(type, queryTime, isDeparture, portCode).map(new Function<RESTFlightList, FlightList>() {
             @Override
             public FlightList apply(RESTFlightList restFlightList) throws Exception {
-                return restFlightConverter.converttoFLightList(restFlightList);
+                return restFlightConverter.convertToFlightList(restFlightList);
             }
         });
     }

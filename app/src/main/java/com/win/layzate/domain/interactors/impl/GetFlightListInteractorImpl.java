@@ -46,7 +46,7 @@ public class GetFlightListInteractorImpl extends AbstractInteractor implements G
         mMainThread.post(new Runnable() {
             @Override
             public void run() {
-                mCallback.onFlightlistretrieved(flightList);
+                mCallback.onFlightListRetrieved(flightList);
             }
         });
     }

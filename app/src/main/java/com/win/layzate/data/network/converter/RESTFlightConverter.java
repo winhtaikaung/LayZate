@@ -43,26 +43,12 @@ public class RESTFlightConverter {
 
     }
 
-    /**
-     * @param restFlightList
-     * @return
-     */
-    public List<Flight> converttoFlightList(List<RESTFlight> restFlightList) {
-        List<Flight> flightArrayList = new ArrayList<>();
-        for (RESTFlight restFlight : restFlightList) {
-            if (restFlight != null) {
-                flightArrayList.add(convertToFlightModel(restFlight));
-            }
-        }
-        return flightArrayList;
-    }
-
 
     /**
      * @param restFlightList
      * @return
      */
-    public FlightList converttoFLightList(RESTFlightList restFlightList) {
+    public FlightList convertToFlightList(RESTFlightList restFlightList) {
 
         FlightList flightList = new FlightList(getFlightList(restFlightList.getFlightItems()));
         return flightList;

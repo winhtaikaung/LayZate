@@ -61,7 +61,7 @@ public class GetFlightTest {
 
         Mockito.verify(mFlightRepository).getFlight("single","YH512","2017-03-10");
         Mockito.verifyNoMoreInteractions(mFlightRepository);
-        Mockito.verify(mMockedCallback).onFlightretrieved(dummyObservableFlight);
+        Mockito.verify(mMockedCallback).onFlightRetrieved(dummyObservableFlight);
 
     }
 }

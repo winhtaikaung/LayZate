@@ -49,7 +49,7 @@ public class GetFlightListTest {
 
         Mockito.verify(mFlightRepository).getAllFlights("list","8",false,"RGN");
         Mockito.verifyNoMoreInteractions(mFlightRepository);
-//        Mockito.verify(mMockedCallback).onFlightlistretrieved();
+//        Mockito.verify(mMockedCallback).onFlightListRetrieved();
     }
 
     @Test
@@ -72,7 +72,7 @@ public class GetFlightListTest {
 
         Mockito.verify(mFlightRepository).getAllFlights("list","8",false,"RGN");
         Mockito.verifyNoMoreInteractions(mFlightRepository);
-        Mockito.verify(mMockedCallback).onFlightlistretrieved(dummyObservablelist);
+        Mockito.verify(mMockedCallback).onFlightListRetrieved(dummyObservablelist);
 
     }
 }
